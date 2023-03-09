@@ -1,5 +1,8 @@
 package com.mrthinkj.kythucac.model.book;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mrthinkj.kythucac.model.user.Account;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -16,8 +19,29 @@ public class Rate {
     @Column(name = "rate_date")
     private LocalDate rateDate;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "book_id")
     private Book book;
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "account_id")
+    private Account account;
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
 
     public int getId() {
         return id;

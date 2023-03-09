@@ -27,62 +27,11 @@ public class Book {
     private String author;
     @Column(name = "book_view")
     private int view;
-    @Column(name = "book_like")
-    private int like;
     @ManyToMany
     @JoinTable(name = "book_type",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "type_id", referencedColumnName = "id"))
     private List<Type> typeList;
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BookRead> bookReadList;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "book")
-    private List<Comment> commentList;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "book")
-    private List<Chapter> chapterList;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "book")
-    private List<Rate> rateList;
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    private Account account;
-    public List<BookRead> getBookReadList() {
-        return bookReadList;
-    }
-    public void setBookReadList(List<BookRead> bookReadList) {
-        this.bookReadList = bookReadList;
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    public List<Rate> getRateList() {
-        return rateList;
-    }
-
-    public void setRateList(List<Rate> rateList) {
-        this.rateList = rateList;
-    }
-
-    public List<Chapter> getChapterList() {
-        return chapterList;
-    }
-
-    public void setChapterList(List<Chapter> chapterList) {
-        this.chapterList = chapterList;
-    }
-
-    public int getLike() {
-        return like;
-    }
-
-    public void setLike(int like) {
-        this.like = like;
-    }
 
     public int getId() {
         return id;
@@ -154,13 +103,5 @@ public class Book {
 
     public void setTypeList(List<Type> typeList) {
         this.typeList = typeList;
-    }
-
-    public List<Comment> getCommentList() {
-        return commentList;
-    }
-
-    public void setCommentList(List<Comment> commentList) {
-        this.commentList = commentList;
     }
 }

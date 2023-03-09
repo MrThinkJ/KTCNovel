@@ -4,15 +4,19 @@ import com.mrthinkj.kythucac.model.book.Book;
 import com.mrthinkj.kythucac.model.book.Chapter;
 import com.mrthinkj.kythucac.model.book.Type;
 import com.mrthinkj.kythucac.repository.book.BookRepository;
+import com.mrthinkj.kythucac.repository.book.LikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class BookService {
     @Autowired
     BookRepository bookRepository;
+    @Autowired
+    LikeRepository likeRepository;
 
     public List<Book> getBookList() {
         return bookRepository.findAll();
@@ -23,7 +27,11 @@ public class BookService {
     }
 
     public List<Book> get10BookHighestLike() {
-        return bookRepository.findTop10ByOrderByLikeDesc();
+        List<Integer> tenBookIdHighestView = likeRepository.get10BookIdHighestLike();
+        List<Book> tenBookHighestView = new ArrayList<>();
+        for (Integer bookId : tenBookIdHighestView)
+            tenBookHighestView.add(bookRepository.findById(bookId.intValue()));
+        return tenBookHighestView;
     }
 
     public List<Book> get10BookHighestComment(){
