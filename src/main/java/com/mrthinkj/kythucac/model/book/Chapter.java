@@ -30,13 +30,6 @@ public class Chapter {
     @JoinColumn(name = "book_id")
     @JsonIgnore
     private Book book;
-    @ManyToMany
-    @JoinTable(
-            name = "chapter_purchase",
-            joinColumns = { @JoinColumn(name = "chapter_id") },
-            inverseJoinColumns = { @JoinColumn(name = "account_id") }
-    )
-    private List<Account> accountList;
 
     public int getIndex() {
         return index;
@@ -44,14 +37,6 @@ public class Chapter {
 
     public void setIndex(int index) {
         this.index = index;
-    }
-
-    public List<Account> getAccountList() {
-        return accountList;
-    }
-
-    public void setAccountList(List<Account> accountList) {
-        this.accountList = accountList;
     }
 
     public int getPrice() {

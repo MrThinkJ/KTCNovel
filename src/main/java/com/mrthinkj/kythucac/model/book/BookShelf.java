@@ -19,6 +19,13 @@ public class BookShelf {
     @JoinColumn(name = "book_id")
     private Book book;
 
+    public BookShelf(){}
+
+    public BookShelf(Account account, Book book) {
+        this.account = account;
+        this.book = book;
+    }
+
     public int getId() {
         return id;
     }

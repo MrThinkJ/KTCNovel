@@ -1,17 +1,16 @@
 package com.mrthinkj.kythucac.controller.book;
 
-import com.mrthinkj.kythucac.model.book.Book;
-import com.mrthinkj.kythucac.model.book.Chapter;
+import com.mrthinkj.kythucac.modelDTO.book.BookSimple;
 import com.mrthinkj.kythucac.service.book.BookEvaluateService;
 import com.mrthinkj.kythucac.service.book.BookService;
 import com.mrthinkj.kythucac.service.book.ChapterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping(method = RequestMethod.GET, path = "/truyen")
@@ -24,7 +23,7 @@ public class BookController {
     @Autowired
     BookEvaluateService bookEvaluateService;
     @GetMapping()
-    private List<Book> showBookList(){
+    private List<BookSimple> showBookList(){
         return bookService.getBookList();
     }
     @GetMapping("/{bookName}")
@@ -34,5 +33,8 @@ public class BookController {
         objectList.add(bookEvaluateService.getNumberOfLikeByBookName(bookName));
         return objectList;
     }
-
+    @ExceptionHandler(Exception.class)
+    public RedirectView handleException(Exception ex) {
+        return new RedirectView("/truyen");
+    }
 }

@@ -33,51 +33,10 @@ public class Account {
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
     private List<Role> roleList;
-//    @ManyToMany(mappedBy = "accountList")
-//    private List<Chapter> chapterList;
-//    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<BookRead> bookReadList;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "account")
     @JsonIgnore
-    private List<Book> bookList; // Can khac phuc
+    private List<Book> bookList;
 
-    public int getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(int currency) {
-        this.currency = currency;
-    }
-
-    public List<Book> getBookList() {
-        return bookList;
-    }
-
-    public void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
-    }
-//
-//    public List<Chapter> getChapterList() {
-//        return chapterList;
-//    }
-//
-//    public void setChapterList(List<Chapter> chapterList) {
-//        this.chapterList = chapterList;
-//    }    public List<BookRead> getBookReadList() {
-//        return bookReadList;
-//    }
-//
-//    public void setBookReadList(List<BookRead> bookReadList) {
-//        this.bookReadList = bookReadList;
-//    }
-//
-//    public List<Book> getBookList() {
-//        return bookList;
-//    }
-//
-//    public void setBookList(List<Book> bookList) {
-//        this.bookList = bookList;
-//    }
     public int getId() {
         return id;
     }
@@ -110,6 +69,14 @@ public class Account {
         this.email = email;
     }
 
+    public int getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(int currency) {
+        this.currency = currency;
+    }
+
     public User getUser() {
         return user;
     }
@@ -125,4 +92,12 @@ public class Account {
     public void setRoleList(List<Role> roleList) {
         this.roleList = roleList;
     }
+
+//    public List<Book> getBookList() {
+//        return bookList;
+//    }
+//
+//    public void setBookList(List<Book> bookList) {
+//        this.bookList = bookList;
+//    }
 }

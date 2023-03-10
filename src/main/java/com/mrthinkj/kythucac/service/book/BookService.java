@@ -2,7 +2,7 @@ package com.mrthinkj.kythucac.service.book;
 
 import com.mrthinkj.kythucac.model.book.Book;
 import com.mrthinkj.kythucac.model.book.Chapter;
-import com.mrthinkj.kythucac.model.book.Type;
+import com.mrthinkj.kythucac.modelDTO.book.BookSimple;
 import com.mrthinkj.kythucac.repository.book.BookRepository;
 import com.mrthinkj.kythucac.repository.book.LikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ public class BookService {
     @Autowired
     LikeRepository likeRepository;
 
-    public List<Book> getBookList() {
-        return bookRepository.findAll();
+    public List<BookSimple> getBookList() {
+        return bookRepository.findAllBookConvert();
     }
 
     public List<Book> get10BookHighestView() {

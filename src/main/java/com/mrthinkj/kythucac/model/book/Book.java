@@ -32,6 +32,9 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "type_id", referencedColumnName = "id"))
     private List<Type> typeList;
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
 
     public int getId() {
         return id;

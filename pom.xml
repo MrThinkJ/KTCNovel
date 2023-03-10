@@ -92,6 +92,13 @@
 <!--            <artifactId>spring-security-config</artifactId>-->
 <!--            <version>5.1.0.RELEASE</version>-->
 <!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.4.2.Final</version>
+        </dependency>
+
     </dependencies>
 
     <build>
