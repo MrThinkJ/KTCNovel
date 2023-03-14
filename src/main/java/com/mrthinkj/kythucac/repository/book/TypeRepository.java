@@ -11,4 +11,6 @@ import java.util.List;
 public interface TypeRepository extends CrudRepository<Type, Integer> {
     @Query(value = "select type_name from type", nativeQuery = true)
     List<String> findNameOfType();
+
+    List<Type> findAll();
 }

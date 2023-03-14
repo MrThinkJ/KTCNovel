@@ -1,5 +1,7 @@
 package com.mrthinkj.kythucac.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +21,7 @@ public class User {
     @Column(name = "user_address")
     private String address;
     @OneToOne(mappedBy = "user")
+    @JsonIgnore
     private Account account;
     public int getId() {
         return id;

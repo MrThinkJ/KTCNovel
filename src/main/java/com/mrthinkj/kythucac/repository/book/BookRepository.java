@@ -20,6 +20,12 @@ public interface BookRepository extends CrudRepository<Book, Integer> {
         List<Object[]> result = findAllBook();
         return BookSimpleMapper.map(result);
     }
+    @Query(value = "select book_name, book_image, book_author, book_description, type_name from book join book_type bt on book.id = bt.book_id join type t on bt.type_id = t.id where account_id = ?1 group by book_name", nativeQuery = true)
+    List<Object[]> findAllBookByAccountId(int accountId);
+    default List<BookSimple> findAllBookByAccountIdConvert(int accountId) {
+        List<Object[]> result = findAllBookByAccountId(accountId);
+        return BookSimpleMapper.map(result);
+    }
     List<Chapter> findChapterListById(int id);
     List<Book> findTop10ByOrderByViewDesc();
     @Query(value = "select * from book as b join comment as cm on b.id = cm.book_id group by cm.id order by count(cm.id) desc", nativeQuery = true)

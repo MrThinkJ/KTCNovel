@@ -4,6 +4,7 @@ import com.mrthinkj.kythucac.model.book.Book;
 import com.mrthinkj.kythucac.service.book.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -23,5 +24,10 @@ public class RankingController {
         if (type.equals("yeu-thich"))
             return bookService.get10BookHighestLike();
         return null;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public RedirectView handleException(Exception ex) {
+        return new RedirectView("/truyen");
     }
 }

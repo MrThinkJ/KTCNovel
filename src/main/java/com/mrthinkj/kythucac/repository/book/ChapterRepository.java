@@ -17,11 +17,16 @@ public interface ChapterRepository extends CrudRepository<Chapter, Integer> {
     @Query(value = "select index_in_book, chapter_name, vip_status, chapter_post_date from chapter where book_id = ?1", nativeQuery = true)
     List<Object[]> findListChapterSimpleByBookId(Integer bookId);
 
-    @Query(value = "", nativeQuery = true)
-
+    @Query(value = "select count(*) from chapter where book_id = ?1", nativeQuery = true)
+    Integer countNumberOfChapterByBookId(int bookId);
 
     default List<ChapterSimple> findListChapterSimpleByBookIdConvert(Integer bookId) {
         List<Object[]> result = findListChapterSimpleByBookId(bookId);
         return ChapterSimpleMapper.map(result);
     }
+
+    @Query(value = "select id from chapter where index_in_book = ?1 and book_id = ?2", nativeQuery = true)
+    Integer findIdByIndexAndBook(int index, int bookId);
+
+    Chapter findById(int chapterId);
 }

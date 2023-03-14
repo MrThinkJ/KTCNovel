@@ -15,4 +15,8 @@ public class TypeService {
     public List<String> getTypes(){
         return typeRepository.findNameOfType();
     }
+
+    public List<Type> findAllType(){
+        return typeRepository.findAll();
+    }
 }

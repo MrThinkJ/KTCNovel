@@ -12,13 +12,24 @@ public class AccountService {
     @Autowired
     AccountRepository accountRepository;
 
+    public Account getAccountByUsernameAndPassword(String username, String password){
+        return accountRepository.findByUsernameAndPassword(username, password);
+    }
+
     @Transactional(rollbackOn = Exception.class)
-    public String pay(int accountId,int amount) throws Exception{
-        Account account = accountRepository.findById(accountId);
+    public String pay(Account account,int amount) throws Exception{
         int currentAmount = account.getCurrency();
         if (currentAmount < amount)
             return "failed";
         account.setCurrency(currentAmount - amount);
+        accountRepository.save(account);
+        return "success";
+    }
+
+    @Transactional(rollbackOn = Exception.class)
+    public String recharge(Account account,int amount) throws Exception{
+        int currentAmount = account.getCurrency();
+        account.setCurrency(currentAmount + amount);
         accountRepository.save(account);
         return "success";
     }

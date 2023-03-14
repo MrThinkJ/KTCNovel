@@ -17,13 +17,12 @@ public class Chapter {
     private int index;
     @Column(name = "chapter_name")
     private String name;
-    @Column(name = "chapter_content",  columnDefinition = "MEDIUMTEXT")
+    @Column(name = "chapter_content", columnDefinition = "MEDIUMTEXT")
     private String content;
     @Column(name = "chapter_post_date")
     private LocalDate postDate;
     @Column(name = "chapter_price")
     private int price;
-
     @Column(name = "vip_status")
     private boolean vipStatus;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -93,5 +92,18 @@ public class Chapter {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    @Override
+    public String toString() {
+        return "Chapter{" +
+                "id=" + id +
+                ", index=" + index +
+                ", name='" + name + '\'' +
+                ", content='" + content + '\'' +
+                ", postDate=" + postDate +
+                ", price=" + price +
+                ", vipStatus=" + vipStatus +
+                '}';
     }
 }

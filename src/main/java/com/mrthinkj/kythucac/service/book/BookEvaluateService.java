@@ -9,13 +9,11 @@ import com.mrthinkj.kythucac.repository.book.BookRepository;
 import com.mrthinkj.kythucac.repository.book.CommentRepository;
 import com.mrthinkj.kythucac.repository.book.LikeRepository;
 import com.mrthinkj.kythucac.repository.book.RateRepository;
-import com.mrthinkj.kythucac.repository.user.AccountRepository;
-import com.mrthinkj.kythucac.service.Convert;
+import com.mrthinkj.kythucac.service.convert.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -31,16 +29,26 @@ public class BookEvaluateService {
     @Autowired
     Convert convert;
 
-    public void toggleLikeToBook(String bookName, int accountId){
+    public void toggleLikeToBook(String bookName, Account account){
         Book book = convert.findBookByName(bookName);
-        List<Integer> bookIds = likeRepository.findBookLikeByAccountId(accountId);
-        for (Integer bookId : bookIds){
-            if (bookId == book.getId()){
-                likeRepository.deleteByBookIdAndAccountId(bookId, accountId);
-                return;
-            }
+        int accountId = account.getId();
+//        List<Integer> bookIds = likeRepository.findBookLikeByAccountId(accountId);
+//        for (Integer bookId : bookIds){
+//            if (bookId == book.getId()){
+//                likeRepository.deleteByBookIdAndAccountId(bookId, accountId);
+//                return;
+//            }
+//        }
+//        likeRepository.saveByBookIdAndAccountId(book.getId(), accountId);
+        Like bookLike = likeRepository.findByBookAndAccount(book, account);
+        if (bookLike == null){
+            Like like = new Like();
+            like.setBook(book);
+            like.setAccount(account);
+            likeRepository.save(like);
+            return;
         }
-        likeRepository.saveByBookIdAndAccountId(book.getId(), accountId);
+        likeRepository.delete(bookLike);
     }
 
     public void addViewToBook(String bookName){

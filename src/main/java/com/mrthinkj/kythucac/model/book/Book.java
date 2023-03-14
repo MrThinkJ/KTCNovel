@@ -27,7 +27,7 @@ public class Book {
     private String author;
     @Column(name = "book_view")
     private int view;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "book_type",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "type_id", referencedColumnName = "id"))
@@ -106,5 +106,29 @@ public class Book {
 
     public void setTypeList(List<Type> typeList) {
         this.typeList = typeList;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", postDate=" + postDate +
+                ", status=" + status +
+                ", author='" + author + '\'' +
+                ", view=" + view +
+                ", typeList=" + typeList +
+                ", account=" + account +
+                '}';
     }
 }
