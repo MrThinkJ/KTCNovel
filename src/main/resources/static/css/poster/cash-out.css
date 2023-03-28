@@ -1,0 +1,131 @@
+main {
+  margin-left: 250px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+main .directory {
+  font-size: 20px;
+  background-color: #f1dec9;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  color: #212525d7;
+  border-radius: 5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+main .directory i {
+  font-size: 8px;
+  margin: 0px 10px;
+  opacity: 0.8;
+}
+
+.notification {
+  background-color: #ffefdcb4;
+  padding: 20px;
+  border-radius: 8px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.notification .title {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.notification a {
+  color: #359797;
+  font-weight: 500;
+}
+
+.notification .noti-limit {
+  display: flex;
+  align-items: center;
+}
+
+.form{
+  margin-bottom: 40px;
+}
+
+#cash-out-form .field {
+  margin-bottom: 20px;
+}
+
+#cash-out-form .field label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#cash-out-form .field input {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 4px;
+  border: 1px solid #00000036;
+}
+
+#cash-out-form .field input:focus-visible {
+  outline: 3px solid #7ac3c5;
+}
+
+#cash-out-form .cash-out-btn{
+  border: none;
+  background-color: #212525;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-top: 5px;
+}
+
+.currency{
+  width: 20px;
+  margin-left: 5px;
+}
+
+.notice .error{
+  position: fixed;
+  width: 200px;
+  height: 90px;
+  background-color: #d11f1fef;
+  color: #fff;
+  top: 0;
+  right: 0;
+  margin-top: 70px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: errorShow .5s linear forwards alternate;
+}
+
+.notice .error::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background-color: #801b1b;
+}
+
+.notice .hide{
+  animation: errorHide .5s linear forwards alternate;
+}
+
+@keyframes errorShow {
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes errorHide {
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}

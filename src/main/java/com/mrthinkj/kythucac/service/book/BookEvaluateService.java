@@ -57,16 +57,16 @@ public class BookEvaluateService {
         bookRepository.save(book);
     }
 
-    public void addRateToBook(String bookName, Rate rate){
+    public void addRateToBook(Account account,String bookName, Rate rate){
         LocalDate date = LocalDate.now();
         rate.setRateDate(date);
         Book book = convert.findBookByName(bookName);
         rate.setBook(book);
+        rate.setAccount(account);
         rateRepository.save(rate);
     }
 
-    public List<Rate> getRateOfBook(String bookName){
-        Book book = convert.findBookByName(bookName);
+    public List<Rate> getRateOfBook(Book book){
         return rateRepository.findByBook(book);
     }
 
@@ -78,11 +78,12 @@ public class BookEvaluateService {
         }
     }
 
-    public void addCommentToBook(String bookName, Comment comment){
+    public void addCommentToBook(Account account, String bookName, Comment comment){
         LocalDate date = LocalDate.now();
         comment.setCommentDate(date);
         Book book = convert.findBookByName(bookName);
         comment.setBook(book);
+        comment.setAccount(account);
         commentRepository.save(comment);
     }
 
@@ -94,8 +95,15 @@ public class BookEvaluateService {
         }
     }
 
-    public Integer getNumberOfLikeByBookName(String bookName){
-        Book book = convert.findBookByName(bookName);
+    public List<Comment> getCommentOfBook(Book book){
+        return commentRepository.findByBook(book);
+    }
+
+    public Integer getNumberOfLikeByBookName(Book book){
         return likeRepository.getNumberOfLikeByBookId(book.getId());
+    }
+
+    public Integer getAverageRateByBookId(Book book){
+        return rateRepository.getAverageRateByBookId(book.getId());
     }
 }

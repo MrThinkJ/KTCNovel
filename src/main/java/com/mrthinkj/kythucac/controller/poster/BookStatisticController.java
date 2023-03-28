@@ -7,6 +7,7 @@ import com.mrthinkj.kythucac.model.book.ChapterPurchase;
 import com.mrthinkj.kythucac.model.user.Account;
 import com.mrthinkj.kythucac.modelDTO.book.ChapterPurchaseDTO;
 import com.mrthinkj.kythucac.service.book.BookStatisticService;
+import com.mrthinkj.kythucac.service.convert.Convert;
 import com.mrthinkj.kythucac.service.file.Excel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -25,29 +27,36 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@Controller
 @RequestMapping(method = RequestMethod.GET, path = "/nguoi-dang")
 public class BookStatisticController {
     @Autowired
     BookStatisticService bookStatisticService;
     @Autowired
     Excel excel;
+    @Autowired
+    Convert convert;
 
-    @GetMapping("/novel/{bookName}")
-    @CheckBookAccount
-    public List<Map<Integer, LocalDate>> getBookStatistic(@ModelAttribute("userAccount")Account account,
-                                                          @PathVariable String bookName){
-        return bookStatisticService.getRevenueLastTenDays(bookName);
+    @GetMapping("/novel/statistic")
+    public String showStatistic(@ModelAttribute("userAccount") Account account,
+                                Model model){
+        model.addAttribute("bookStatisticList", bookStatisticService.getBookStatisticList(account));
+        return "poster/book-statistic";
     }
 
-    @GetMapping("/novel/{bookName}/history")
+    @GetMapping("/novel/statistic/{bookName}")
     @CheckBookAccount
-    public List<ChapterPurchaseDTO> get20LastChapterPurchase(@ModelAttribute("userAccount") Account account,
-                                                             @PathVariable String bookName){
-        return bookStatisticService.getLast20ChapterPurchase(bookName);
+    public String getBookStatistic(@ModelAttribute("userAccount")Account account,
+                                   @PathVariable String bookName,
+                                   Model model){
+         bookStatisticService.getRevenueLastTenDays(bookName);
+         model.addAttribute("chapterList", bookStatisticService.getLast10ChapterPurchase(bookName));
+         model.addAttribute("bookName", convert.getBookName(bookName));
+         model.addAttribute("bookLink", bookName);
+         return "poster/book-detail-statistic";
     }
 
-    @GetMapping(value = "/novel/{bookName}/excel", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @GetMapping(value = "/novel/statistic/{bookName}/excel", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     @CheckBookAccount
     public ResponseEntity<InputStreamResource> downloadExcel(@ModelAttribute("userAccount") Account account,
                                                              @PathVariable String bookName) throws IOException {

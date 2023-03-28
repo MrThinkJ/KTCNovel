@@ -1,0 +1,187 @@
+.background {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    bottom: -2px;
+    box-shadow: 3px -4px 15px 20px #fff;
+    z-index: 0;
+}
+
+.background_image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.wrapper-user{
+    max-width: 1100px !important;
+    min-height: 550px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: -80px;
+    z-index: 2;
+    box-shadow: 0px 0px 20px 10px #00000025;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.wrapper-user .user-head{
+    padding-bottom: 30px;
+}
+
+.wrapper-user .user-head .left-col{
+    border-right: 1px solid #0000003d;
+    height: 100%;
+}
+
+.user-head .user{
+    border-bottom: 1px solid #0000003d;
+    padding-bottom: 30px;
+}
+
+.user .avatar{
+    display: flex;
+    justify-content: center;
+}
+
+.user .avatar img{
+    width: 100px;
+    border-radius: 50%;
+}
+
+.user-information .name{
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.user-information .information{
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+    font-weight: 500;
+    justify-content: center;
+    margin-top: 5px;
+}
+.user-information .information i{
+    font-size: 7px;
+    opacity: 0.6;
+    margin: 0px 10px;
+}
+
+.option{
+    margin: 0px 10px;
+}
+
+.option a{
+    color: #000;
+}
+
+.option .row{
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+.option .row:hover{
+    background-color: #f1dec942;
+    color: #000;
+}
+
+.option .active{
+    background-color: #f1dec9 !important;
+}
+
+.option .row i{
+    width: auto;
+}
+
+.right-col {
+    border-left: 1px solid #0000001b;
+}
+
+.right-col .head .profile {
+    padding: 10px 20px;
+    border-bottom: 5px solid #f1dec9;
+    display: inline-block;
+}
+
+.right-col .body {
+    margin-top: 20px;
+}
+
+.body .currency-statistic {
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #00000018;
+}
+
+.notification {
+    background-color: #ffefdcb4;
+    padding: 20px;
+    border-radius: 8px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.notification .title {
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.notification a {
+    color: #359797;
+    font-weight: 500;
+}
+
+.notification .noti-limit {
+    display: flex;
+    align-items: center;
+}
+
+.currency{
+    margin: 0px 5px;
+}
+
+.col-4{
+    width: 30% !important;
+}
+
+.method{
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 11px 3px #00000015;
+    margin-left: 20px;
+}
+
+.method .method-head{
+    padding: 20px;
+    border-bottom: 1px solid #00000036;
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.method .method-head .bank-id{
+    margin-top: 10px;
+}
+
+.method .method-body div{
+    margin-bottom: 10px;
+}
+
+.method .method-body .content{
+    font-weight: 500;
+}

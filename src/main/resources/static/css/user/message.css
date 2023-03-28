@@ -1,0 +1,127 @@
+.background {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    bottom: -2px;
+    box-shadow: 3px -4px 15px 20px #fff;
+    z-index: 0;
+}
+
+.background_image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.wrapper-message {
+    max-width: 900px !important;
+    height: auto;
+    min-height: 550px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: -80px;
+    z-index: 2;
+    box-shadow: 0px 0px 20px 10px #00000025;
+    margin-bottom: 50px;
+}
+
+.header {
+    padding: 20px;
+    display: flex;
+    font-size: 17px;
+    font-weight: 500;
+    align-items: center;
+    border-bottom: 1px solid #00000033;
+}
+
+.wrapper-message .header .avatar img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.body .message-container{
+    padding: 20px;
+    min-height: 400px;
+}
+
+.body .message-container img{
+    width: 40px;
+    border-radius: 50%;
+}
+
+.body .message-container .send{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-bottom: 10px;
+}
+
+.body .message-container .send .avatar{
+    margin-left: 10px;
+}
+
+.body .message-container .send .message-content{
+    background-color: #0084FF;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 30px;
+    max-width: 390px;
+}
+
+.body .message-container .message-content .content{
+    padding: 5px;
+}
+
+.body .message-container .receive{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.body .message-container .receive .avatar{
+    margin-right: 10px;
+}
+
+.body .message-container .receive .message-content{
+    background-color: #E4E6EB;
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 30px;
+    max-width: 390px;
+}
+
+.input-field{
+    padding: 20px;
+}
+
+.input-field input{
+    width: 90%;
+    border: none;
+    background-color: #F3F3F5;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 20px;
+    padding: 0px 20px;
+}
+
+.input-field input:focus-visible{
+    outline: none;
+}
+
+.input-field button{
+    border: none;
+    background-color: #0084FF;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+}

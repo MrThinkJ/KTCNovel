@@ -21,6 +21,8 @@ public class BookAccountAspect {
         Object[] args = joinPoint.getArgs();
         String bookName = (String) args[1];
         Book book = convert.findBookByName(bookName);
+        if(book == null)
+            throw new NullPointerException("This book not exist.");
         if (account == null || book.getAccount().getId() != account.getId())
             throw new ForbiddenException("You are not allowed to access this book.");
         return joinPoint.proceed();

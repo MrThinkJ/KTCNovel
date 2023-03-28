@@ -10,10 +10,16 @@ import java.util.stream.Collectors;
 @Service
 public class BookSimpleMapper {
     public static BookSimple map(Object[] row) {
-        BookSimple bookSimple = new BookSimple((String) row[0], (String) row[1], (String) row[2], (String) row[3], (String) row[4]);
+        BookSimple bookSimple = new BookSimple((String) row[0], (String) row[1], (String) row[2], (String) row[3], (String) row[4], (Integer) row[5]);
         return bookSimple;
     }
     public static List<BookSimple> map(List<Object[]> rows) {
         return rows.stream().map(BookSimpleMapper::map).collect(Collectors.toList());
+    }
+
+    public static BookSimple mapOne(Object[] rows) {
+        Object[] row = (Object[]) rows[0];
+        BookSimple bookSimple = new BookSimple((String) row[0], (String) row[1], (String) row[2], (String) row[3], (String) row[4], (Integer) row[5]);
+        return bookSimple;
     }
 }

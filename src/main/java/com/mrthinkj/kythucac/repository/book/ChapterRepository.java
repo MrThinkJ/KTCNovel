@@ -14,6 +14,9 @@ public interface ChapterRepository extends CrudRepository<Chapter, Integer> {
     @Query(value = "select * from chapter where book_id = ?1 and index_in_book = ?2", nativeQuery = true)
     Chapter findByBookIdAndIndex(int bookId, int index);
 
+    @Query(value = "select * from chapter where book_id = ?1 order by id desc limit 1", nativeQuery = true)
+    Chapter findLastChapterByBookId(int bookId);
+
     @Query(value = "select index_in_book, chapter_name, vip_status, chapter_post_date from chapter where book_id = ?1", nativeQuery = true)
     List<Object[]> findListChapterSimpleByBookId(Integer bookId);
 
@@ -23,6 +26,11 @@ public interface ChapterRepository extends CrudRepository<Chapter, Integer> {
     default List<ChapterSimple> findListChapterSimpleByBookIdConvert(Integer bookId) {
         List<Object[]> result = findListChapterSimpleByBookId(bookId);
         return ChapterSimpleMapper.map(result);
+    }
+    @Query(value = "select index_in_book, chapter_name, vip_status, chapter_post_date from chapter where book_id = ?1 order by index_in_book desc limit 1", nativeQuery = true)
+    Object[] findLastChapterSimpleByBookId(Integer bookId);
+    default ChapterSimple findLastChapterSimpleByBookIdConvert(int bookId){
+        return ChapterSimpleMapper.mapOne(findLastChapterSimpleByBookId(bookId));
     }
 
     @Query(value = "select id from chapter where index_in_book = ?1 and book_id = ?2", nativeQuery = true)

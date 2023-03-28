@@ -27,7 +27,6 @@ public class Chapter {
     private boolean vipStatus;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
-    @JsonIgnore
     private Book book;
 
     public int getIndex() {

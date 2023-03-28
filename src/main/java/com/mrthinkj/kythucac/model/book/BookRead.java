@@ -4,6 +4,7 @@ import com.mrthinkj.kythucac.model.user.Account;
 import com.mrthinkj.kythucac.model.user.User;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,9 @@ public class BookRead {
     private Book book;
     @Column(name = "chapter_mark")
     private int chapterMark;
+
+    @Column(name = "read_date")
+    private LocalDate readDate;
 
     public int getId() {
         return id;
@@ -51,5 +55,13 @@ public class BookRead {
 
     public void setChapterMark(int chapterMark) {
         this.chapterMark = chapterMark;
+    }
+
+    public LocalDate getReadDate() {
+        return readDate;
+    }
+
+    public void setReadDate(LocalDate readDate) {
+        this.readDate = readDate;
     }
 }

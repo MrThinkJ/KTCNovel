@@ -1,0 +1,162 @@
+main {
+    margin-left: 250px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+main .directory {
+    font-size: 20px;
+    background-color: #f1dec9;
+    padding: 10px 20px;
+    color: #212525d7;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.title i {
+    font-size: 12px;
+    margin-left: 8px;
+    opacity: 0.7;
+}
+
+.book {
+    padding: 30px 0px;
+    border-bottom: 1px solid #00000036;
+}
+
+.book .book-detail {
+    display: flex;
+}
+
+.book .book-detail .book-information {
+    margin-left: 20px;
+}
+
+.book .book-detail .book-information div {
+    margin-bottom: 10px;
+}
+
+.book .book-detail .book-information .book-name {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.book .book-detail .book-information .book-author {
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.book .book-detail .book-information .book-author i {
+    margin-right: 5px;
+}
+
+.book .book-detail .book-information .book-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.book .book-detail .book-information .book-type {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #ac8355;
+    border: 1px solid #ac8355;
+}
+
+.book .book-action {
+    display: flex;
+    margin-top: 30px;
+    margin-left: -20px;
+}
+
+.book .book-action div {
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #2c3333;
+    color: #fff;
+    opacity: 0.8;
+    border-radius: 7px;
+}
+
+.chapter {
+    margin-top: 30px;
+}
+
+.chapter-detail{
+    border-radius: 5px;
+}
+
+.chapter-detail .head{
+    font-size: 15.8px;
+    font-weight: 500;
+    border-bottom: 1px solid #e2cdb4;
+    padding: 10px 0px;
+}
+
+.chapter-detail .chapter-information{
+    padding: 10px 0px;
+    font-weight: 500;
+    color: #105f5f;
+}
+
+.chapter-detail .chapter-information:nth-child(2n+1){
+    background-color: #ffc7871a;
+}
+
+.chapter-detail .chapter-information a{
+    color: #105f5f;
+}
+
+.chapter-detail .chapter-information .time{
+    text-align: center;
+}
+
+.pagination{
+    margin-bottom: 40px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.pagination .page{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.pagination a{
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    background-color: #2c3333;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.pagination .active{
+    background-color: #008383;
+    border-radius: 5px;
+}
+
+.wrapper-vip{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vip{
+    padding: 0px 10px;
+    text-align: center;
+    background-color: #F0EB8D;
+    color: #000;
+}

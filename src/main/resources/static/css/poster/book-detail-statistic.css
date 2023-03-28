@@ -1,0 +1,96 @@
+main {
+  margin-left: 250px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+main .directory {
+  font-size: 20px;
+  background-color: #f1dec9;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  color: #212525d7;
+  border-radius: 5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+main .directory i {
+  font-size: 8px;
+  margin: 0px 10px;
+  opacity: 0.8;
+}
+
+.chart-container {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #0000003b;
+  padding-bottom: 30px;
+}
+
+.chart-container .cash-out-btn{
+  background-color: #212525;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.purchase-list {
+  margin-bottom: 50px;
+}
+
+.purchase-list .title {
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.purchase-list .title i {
+  font-size: 12px;
+  margin-left: 8px;
+  opacity: 0.7;
+}
+
+.list .head {
+  font-size: 15.8px;
+  font-weight: 500;
+  border-bottom: 1px solid #e2cdb4;
+  padding: 10px 0px;
+}
+
+.list .head .col-2 {
+  text-align: center;
+}
+
+.list .purchase-information {
+  padding: 10px 0px;
+  font-weight: 500;
+  color: #105f5f;
+}
+
+.list .purchase-information a {
+  color: #105f5f;
+}
+
+.list .purchase-information:nth-child(2n + 1) {
+  background-color: #ffc7871a;
+}
+
+.list .purchase-information .col-2 {
+  text-align: center;
+}
+
+.note{
+  font-size: 15px;
+  font-style: italic;
+}
+
+.note a{
+  color: #0e8388;
+  font-weight: 600;
+}

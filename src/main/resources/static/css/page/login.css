@@ -1,0 +1,285 @@
+:root {
+  --hover-color: #0e8388;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  /* background-image: url(https://img5.thuthuatphanmem.vn/uploads/2021/11/26/hinh-nen-phong-canh-co-trang-cho-may-tinh_010559903.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; */
+  background-image: url(/images/page/background-login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+header {
+  background: url(https://img.zing.vn/products/jx1m/skin-2020/images/themes/nav-bg.png)
+    center / 100% 100px no-repeat;
+  backdrop-filter: blur(1rem);
+  border: 1px solid transparent;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+header .logo {
+  margin-left: 150px;
+}
+
+@media only screen and (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1290px !important;
+  }
+}
+
+.main {
+  width: 1000px;
+  height: 460px;
+  margin-top: 50px;
+  display: flex;
+}
+
+.main .left-section img {
+  height: 480px;
+}
+
+.main .main-form {
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 20px #00000018;
+  background-color: #0000004f;
+  margin-left: 50px;
+  transition: all .3s;
+}
+
+.main .wrapper-login{
+  height: 450px;
+}
+
+.main .main-form .wrapper-form {
+  padding: 30px;
+}
+
+.main .main-form .method {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+  padding: 20px 100px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.main .main-form .method div{
+  padding: 5px 0px;
+}
+
+.main .main-form .method .login-btn{
+  position: relative;
+}
+
+.main .main-form .method .login-btn,
+.main .main-form .method .register-btn{
+  cursor: pointer;
+}
+
+.main .main-form .method .login-btn .border{
+  position: absolute;
+  content: '';
+  width: 125px;
+  height: 4px;
+  background-color: #ff9900;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  transition: all 0.5s;
+  border: none !important;
+}
+
+.main .main-form .method .login-btn .active{
+  left: 155px;
+  width: 120px;
+}
+
+.main-form .form {
+  width: 100%;
+  padding: 20px 70px;
+}
+.form .password-field {
+  margin-top: 20px;
+}
+
+.form .field .title {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.9;
+  color: #fff;
+}
+
+.form .field input {
+  margin-top: 10px;
+  width: 330px;
+  height: 45px;
+  border-radius: 20px;
+  border: none;
+  background-color: #eaf5ee;
+  padding: 5px 20px;
+}
+
+.form .field input:focus-visible {
+  outline: 3px solid #94af9f;
+}
+
+.form .error {
+  font-size: 14px;
+  padding-top: 10px;
+  font-style: italic;
+  color: #df7857;
+  padding-left: 5px;
+}
+
+.form .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.form .button button {
+  border: none;
+  background-color: #105e61;
+  padding: 10px 40px;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #fff;
+  transition: all .2s;
+}
+
+.form .button button:hover{
+  background-color: #1a7677;
+}
+
+.main .wrapper-register{
+  height: 600px !important;
+}
+
+.register .field:first-of-type{
+  margin: 0;
+}
+
+.register .field{
+  margin-top: 15px;
+}
+
+.register .button{
+  margin-top: 30px;
+}
+
+.register{
+  opacity: 0;
+  animation: show 1s alternate 1 forwards;
+}
+
+.login{
+  opacity: 0;
+  animation: show 1s alternate 1 forwards;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@keyframes show {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.notification .error{
+  position: absolute;
+  width: 200px;
+  height: 70px;
+  background-color: #d11f1fef;
+  color: #fff;
+  top: 0;
+  right: 0;
+  margin-top: 70px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: errorShow .5s linear forwards alternate;
+}
+
+.notification .error::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background-color: #801b1b;
+}
+
+.notification .success{
+  position: absolute;
+  width: 200px;
+  height: 70px;
+  background-color: #19895C;
+  color: #fff;
+  top: 0;
+  right: 0;
+  margin-top: 70px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: errorShow .5s linear forwards alternate;
+}
+
+.notification .success::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background-color: #0d442f;
+}
+
+.notification .hide{
+  animation: errorHide .5s linear forwards alternate;
+}
+
+@keyframes errorShow {
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes errorHide {
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}

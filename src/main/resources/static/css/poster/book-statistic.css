@@ -1,0 +1,111 @@
+main {
+  margin-left: 250px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+main .directory {
+  font-size: 20px;
+  background-color: #f1dec9;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  color: #212525d7;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.head{
+  font-size: 17px;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.head div:not(:first-child){
+  text-align: center;
+}
+
+.head-book, .book-detail{
+  width: 20% !important;
+}
+
+.book{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 15px 0px;
+}
+
+.book:nth-child(2n){
+  background-color: #21252509;
+}
+
+.book-detail{
+  display: flex;
+}
+
+.book-detail .book-image{
+  margin-right: 20px;
+}
+
+.book-detail .book-information{
+  width: 100%;
+  text-align: left;
+}
+
+.book-detail .book-information .book-name{
+  font-size: 15px;
+  font-weight: 500;
+  height: 23px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book-detail .book-information .book-author{
+  width: 100%;
+  height: 21px;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+.book-detail .book-information .book-author i{
+  font-size: 12px;
+}
+
+.book-detail .book-information .book-type{
+  margin-top: 7px;
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: #ac8355;
+  border: 1px solid #ac8355;
+}
+
+.book .action-button{
+  width: 15%;
+}
+
+.book .action-button .button{
+  background-color: #2C3333;
+  color: #fff;
+  opacity: 0.8;
+  padding: 6px 10px;
+  border-radius: 7px;
+}
+
+.book .book-revenue{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currency{
+  width: 20px;
+  margin-left: 5px;
+}

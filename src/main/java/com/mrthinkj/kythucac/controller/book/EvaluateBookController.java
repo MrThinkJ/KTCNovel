@@ -1,5 +1,8 @@
 package com.mrthinkj.kythucac.controller.book;
 
+import com.mrthinkj.kythucac.annotation.CheckAccount;
+import com.mrthinkj.kythucac.annotation.CheckBookAccount;
+import com.mrthinkj.kythucac.exception.ForbiddenException;
 import com.mrthinkj.kythucac.model.book.Comment;
 import com.mrthinkj.kythucac.model.book.Rate;
 import com.mrthinkj.kythucac.model.user.Account;
@@ -19,8 +22,9 @@ public class EvaluateBookController {
     @Autowired
     BookEvaluateService bookEvaluateService;
     @PostMapping("/{bookName}/like")
-    public void addLikeToBook(@PathVariable String bookName,
-                              @ModelAttribute("userAccount") Account account){
+    @CheckAccount
+    public void addLikeToBook(@ModelAttribute("userAccount") Account account,
+                              @PathVariable String bookName){
         bookEvaluateService.toggleLikeToBook(bookName, account);
     }
 
@@ -29,40 +33,32 @@ public class EvaluateBookController {
         bookEvaluateService.addViewToBook(bookName);
     }
 
-    @GetMapping("/{bookName}/rate-form")
-    public String showRateForm(@PathVariable String bookName,
-                               Model model){
-        model.addAttribute("rate", new Rate());
-        return "add";
-    }
-
-    @GetMapping("/{bookName}/rate")
-    public List<Rate> showRate(@PathVariable String bookName){
-        return bookEvaluateService.getRateOfBook(bookName);
-    }
-
     @PostMapping("/{bookName}/process-rate")
-    public void addRateToBook(@PathVariable String bookName,
+    @CheckAccount
+    public String addRateToBook(@ModelAttribute("userAccount") Account account,
+                              @PathVariable String bookName,
                               @ModelAttribute("rate") Rate rate){
-        bookEvaluateService.addRateToBook(bookName, rate);
-    }
-
-    @GetMapping("/{bookName}/comment")
-    public String showCommentForm(@PathVariable String bookName,
-                               Model model){
-        model.addAttribute("comment", new Comment());
-        return "add-comment";
+        bookEvaluateService.addRateToBook(account, bookName, rate);
+        return "success";
     }
 
     @PostMapping("/{bookName}/process-comment")
-    public void addCommentToBook(@PathVariable String bookName,
-                              @ModelAttribute("rate") Comment comment){
-        bookEvaluateService.addCommentToBook(bookName, comment);
+    @CheckAccount
+    public String addCommentToBook(@ModelAttribute("userAccount") Account account,
+                                 @PathVariable String bookName,
+                                 @ModelAttribute("rate") Comment comment){
+        bookEvaluateService.addCommentToBook(account, bookName, comment);
+        return "success";
     }
 
-    @ExceptionHandler(Exception.class)
-    public RedirectView handleException(Exception ex) {
-        return new RedirectView("/truyen");
+    @ExceptionHandler(NullPointerException.class)
+    public String handleException(Exception ex) {
+        return "404";
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public String handleForbidden(Exception ex) {
+        return "403";
     }
 
     @ModelAttribute("userAccount")

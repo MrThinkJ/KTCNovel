@@ -13,12 +13,14 @@ import java.util.List;
 public class RankingController {
     @Autowired
     BookService bookService;
+
     @GetMapping()
-    public List<Book> getBookListHasHighestView(){
+    public List<Book> getBookListHasHighestView() {
         return bookService.get10BookHighestView();
     }
+
     @GetMapping("/{type}")
-    public List<Book> getBookListByType(@PathVariable String type){
+    public List<Book> getBookListByType(@PathVariable String type) {
         if (type.equals("doc-nhieu"))
             return bookService.get10BookHighestView();
         if (type.equals("yeu-thich"))

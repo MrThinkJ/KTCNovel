@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -30,7 +32,7 @@ public class ManageChapterController {
                                      @PathVariable String bookName,
                                      Model model) {
         model.addAttribute("chapter", new Chapter());
-        return "post-chapter";
+        return "poster/add-chapter";
     }
 
     @PostMapping("/novel/{bookName}/chapter/add/process")
@@ -40,15 +42,16 @@ public class ManageChapterController {
                                            @ModelAttribute("chapter") Chapter chapter,
                                            @RequestParam("file") MultipartFile file) {
         String content;
-        try {
-            XWPFDocument document = new XWPFDocument(file.getInputStream());
-            XWPFWordExtractor extractor = new XWPFWordExtractor(document);
-            content = extractor.getText();
-            document.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "error";
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        content = sb.toString();
         String status = chapterService.addNewChapter(bookName, chapter, content);
         return status;
     }
@@ -61,7 +64,8 @@ public class ManageChapterController {
                                         Model model) {
         Chapter chapter = chapterService.getChapterByBookIdAndChapterIndexUpdate(bookName, chapterIndex, account);
         model.addAttribute("chapter", chapter);
-        return "update-chapter";
+        model.addAttribute("bookName", chapter.getBook().getName());
+        return "poster/update-chapter";
     }
 
     @PostMapping("/novel/{bookName}/chapter/update/process")
@@ -71,15 +75,16 @@ public class ManageChapterController {
                                               @ModelAttribute("chapter") Chapter chapter,
                                               @RequestParam("file") MultipartFile file) {
         String content;
-        try {
-            XWPFDocument document = new XWPFDocument(file.getInputStream());
-            XWPFWordExtractor extractor = new XWPFWordExtractor(document);
-            content = extractor.getText();
-            document.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "error";
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        content = sb.toString();
         String status = chapterService.updateChapter(bookName, chapter, content);
         return status;
     }

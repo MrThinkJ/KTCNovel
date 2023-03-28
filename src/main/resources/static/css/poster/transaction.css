@@ -1,0 +1,61 @@
+main {
+  margin-left: 250px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+main .directory {
+  font-size: 20px;
+  background-color: #f1dec9;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  color: #212525d7;
+  border-radius: 5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+main .directory i {
+  font-size: 8px;
+  margin: 0px 10px;
+  opacity: 0.8;
+}
+
+.transaction .head{
+  font-size: 17px;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.transaction .head .col-2:not(:first-child){
+  text-align: center;
+}
+
+.transaction .transaction-detail{
+  padding: 10px 0px;
+  font-weight: 500;
+  color: #105f5f;
+}
+
+.transaction .transaction-detail .col-2:not(:first-child){
+  text-align: center;
+}
+
+.transaction .transaction-detail:nth-child(2n){
+  background-color: #ffc7871a;
+}
+
+.book-name{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.notification{
+  font-size: 16px;
+  font-style: italic;
+  margin-left: -25px;
+}

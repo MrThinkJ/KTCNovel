@@ -21,4 +21,7 @@ public interface LikeRepository extends CrudRepository<Like, Integer> {
 
     @Query(value = "SELECT book_id FROM book_like group by book_id order by COUNT(*) desc limit 10", nativeQuery = true)
     List<Integer> get10BookIdHighestLike();
+
+    @Query(value = "SELECT book_id FROM book_like group by book_id order by COUNT(*) desc limit 3", nativeQuery = true)
+    List<Integer> get3BookIdHighestLike();
 }

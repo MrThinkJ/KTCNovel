@@ -1,0 +1,87 @@
+:root {
+    --hover-color: #0e8388;
+}
+
+html {
+    background-color: #212525;
+    min-height: 770px;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    /* background-image: url(https://img5.thuthuatphanmem.vn/uploads/2021/11/26/hinh-nen-phong-canh-co-trang-cho-may-tinh_010559903.jpg);
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed; */
+    background-color: #212525 !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+main {
+    margin-left: 250px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+main .directory {
+    font-size: 20px;
+    background-color: #f1dec9;
+    padding: 10px 20px;
+    margin-bottom: 40px;
+    color: #212525d7;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.recharge .head {
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.recharge .head .col-2:not(:first-child) {
+    text-align: center;
+}
+
+.recharge .recharge-detail {
+    padding: 10px 0px;
+    font-weight: 500;
+    color: #105f5f;
+}
+
+.recharge .recharge-detail .col-2:not(:first-child) {
+    text-align: center;
+}
+
+.recharge .recharge-detail:nth-child(2n) {
+    background-color: #ffc7871a;
+}
+
+.book-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.recharge .recharge-detail .col-3 input{
+    width: 80px;
+    border: 1px solid #0e8388;
+    border-radius: 3px;
+}
+
+.recharge .recharge-detail .col-3 input:focus-visible{
+    outline: 3px solid #0e8388;
+}
+
+.recharge .recharge-detail .col-3 button{
+    border: none;
+    background-color: #194a4a;
+    color: #fff;
+    margin-left: 10px;
+    font-size: 12px;
+}

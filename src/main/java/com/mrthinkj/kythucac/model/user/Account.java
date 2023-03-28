@@ -27,15 +27,33 @@ public class Account {
     private User user;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
-            name = "users_roles",
+            name = "account_roles",
             joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
+                    name = "account_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
     private List<Role> roleList;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "account")
     @JsonIgnore
     private List<Book> bookList;
+
+    private Boolean enabled;
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
+
+    public Boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public int getId() {
         return id;
@@ -93,11 +111,15 @@ public class Account {
         this.roleList = roleList;
     }
 
-//    public List<Book> getBookList() {
-//        return bookList;
-//    }
-//
-//    public void setBookList(List<Book> bookList) {
-//        this.bookList = bookList;
-//    }
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", currency=" + currency +
+                ", user=" + user +
+                '}';
+    }
 }

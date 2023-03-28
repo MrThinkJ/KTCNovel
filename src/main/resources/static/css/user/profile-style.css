@@ -1,0 +1,248 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/* END SEARCH BOX */
+
+/*  UPLOAD, REGISTER */
+ul.menu a.upload-novel:hover,
+ul.menu a.login:hover,
+ul.menu a.register:hover {
+  color: orange;
+  transition: color 0.3s;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  z-index: -1;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  bottom: -2px;
+  box-shadow: 3px -4px 15px 20px #fff;
+  z-index: 0;
+}
+
+.background_image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+#wp-content .user {
+  max-width: 1100px !important;
+  height: 550px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: -80px;
+  z-index: 2;
+  box-shadow: 0px 0px 20px 10px #00000025;
+  margin-bottom: 50px;
+}
+
+.row {
+  padding: 20px;
+}
+
+.user_head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+.user_head .wrapper_user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+}
+
+.user_head .wrapper_user .avatar img {
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user_head .wrapper_user .username {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.user_head .message {
+  display: flex;
+  align-items: center;
+  background-color: #f94a29;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.user_head .message i {
+  margin-right: 10px;
+}
+
+.user_detail_block:first-child {
+  padding-top: 20px;
+  border-top: 1px solid #0000002d;
+}
+
+.user_detail_block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  font-size: 16px;
+  border-bottom: 1px solid #0000002d;
+}
+
+.user_detail_block label {
+  width: 100px;
+}
+
+.user_detail_block .text {
+  opacity: 0.7;
+}
+
+.user_description {
+  font-size: 16px;
+}
+
+.user_description .description {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-color: #f7f5f0;
+  margin-top: 20px;
+  border-radius: 9px;
+}
+
+.user_description .description::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f7f5f0;
+  bottom: 100%;
+  left: 8%;
+}
+
+.user_description .description .text {
+  padding: 10px;
+}
+
+.book_block {
+  display: flex;
+  font-size: 17px;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #0000002d;
+  max-width: 280px;
+  padding-bottom: 20px;
+}
+
+.book_block label {
+  width: 150px;
+}
+
+.book_block .number {
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.book_block .text {
+  margin-left: 8px;
+}
+
+.book_read > label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.swiper {
+  width: 680px;
+  height: 300px;
+  margin-top: 40px;
+  background-color: #f1dec9;
+  border-radius: 5px;
+}
+
+.swiper-slide .book {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 40px;
+  padding-left: 70px;
+  max-width: 600px;
+}
+
+.swiper-slide .book img {
+  width: 150px;
+}
+
+.swiper-slide .book .book_detail {
+  width: 100%;
+  height: 100%;
+  margin-left: 30px;
+}
+
+.swiper-slide .book .book_detail .book_name {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.swiper-slide .book .book_detail .book_author {
+  font-size: 16px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.swiper-slide .book .book_detail .book_author i {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.swiper-slide .book .book_detail .book_description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.mySwiper .button {
+  z-index: 999;
+  color: #00000041;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.mySwiper .button::after {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  color: #000;
+  background-color: #000;
+}

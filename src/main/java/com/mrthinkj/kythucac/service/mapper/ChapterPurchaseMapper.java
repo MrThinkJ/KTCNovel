@@ -15,6 +15,7 @@ public class ChapterPurchaseMapper {
         ChapterPurchaseDTO chapterPurchaseDTO = new ChapterPurchaseDTO((String) row[0], (Date) row[1], (Integer) row[2], (String) row[3], (Integer) row[4]);
         return chapterPurchaseDTO;
     }
+
     public static List<ChapterPurchaseDTO> map(List<Object[]> rows) {
         return rows.stream().map(ChapterPurchaseMapper::map).collect(Collectors.toList());
     }

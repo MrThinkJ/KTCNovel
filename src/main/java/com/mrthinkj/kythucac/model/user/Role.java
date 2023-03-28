@@ -14,6 +14,7 @@ public class Role {
 
     @ManyToMany(mappedBy = "roleList")
     private List<Account> accountList;
+
     public int getId() {
         return id;
     }

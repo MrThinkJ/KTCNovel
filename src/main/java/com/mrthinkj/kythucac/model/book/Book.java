@@ -4,8 +4,12 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mrthinkj.kythucac.model.user.Account;
 
 import javax.persistence.*;
+import java.io.UnsupportedEncodingException;
+import java.text.Normalizer;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Table(name = "book")
@@ -130,5 +134,21 @@ public class Book {
                 ", typeList=" + typeList +
                 ", account=" + account +
                 '}';
+    }
+
+    public String convert() throws UnsupportedEncodingException {
+        String output = name.toLowerCase()
+                .replaceAll("\\s+", "-");
+        return output;
+    }
+
+    public String convertAll(){
+        String output = Normalizer.normalize(name, Normalizer.Form.NFD)
+                .replaceAll("[đĐ]", "[d]")
+                .replaceAll("[^\\p{ASCII}]+", "") // Remove non-ASCII characters
+                .replace("[", "").replace("]", "")
+                .replaceAll("\\W+", "-") // Replace consecutive non-word characters with a single hyphen
+                .toLowerCase(); // Convert to lowercase
+        return output;
     }
 }

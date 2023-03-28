@@ -1,0 +1,130 @@
+:root {
+  --hover-color: #0e8388;
+}
+
+html {
+  background-color: #212525;
+  min-height: 770px;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  /* background-image: url(https://img5.thuthuatphanmem.vn/uploads/2021/11/26/hinh-nen-phong-canh-co-trang-cho-may-tinh_010559903.jpg);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; */
+  background-color: #212525 !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+main {
+  margin-left: 250px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+main .directory {
+  font-size: 20px;
+  background-color: #f1dec9;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  color: #212525d7;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+#add-form .field {
+  margin-bottom: 20px;
+}
+
+#add-form .field label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#add-form .field .input input {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 4px;
+  border: 1px solid #00000036;
+}
+
+#add-form .field .input input:focus-visible {
+  outline: 3px solid #7ac3c5;
+}
+
+#add-form .field .type {
+  max-width: 400px;
+  margin-left: -7px;
+}
+
+#add-form .field .type > label {
+  font-size: 13px;
+  -webkit-user-select: none;
+  border: 2px solid #4d7b7c;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-left: 7px;
+}
+
+.field .type .active {
+  background-color: transparent;
+  color: #000;
+  color: #fff;
+  animation: fadeIn 0.2s linear alternate forwards;
+}
+
+.field .type .not-active {
+  background-color: #4d7b7c;
+  color: #fff;
+  animation: fadeOut 0.2s linear alternate forwards;
+}
+
+.field .type input {
+  display: none;
+}
+
+#add-form .field .book-description {
+  border: 1px solid #00000036;
+  resize: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#add-form .field .book-description:focus-visible {
+  outline: 3px solid #7ac3c5;
+}
+
+#add-form .add-btn {
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  background-color: #2e3840e1;
+  color: #fff;
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  to {
+    background-color: #4d7b7c;
+    color: #fff;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+.fa-circle{
+  font-size: 8px;
+  margin: 0px 10px;
+  opacity: 0.8;
+}

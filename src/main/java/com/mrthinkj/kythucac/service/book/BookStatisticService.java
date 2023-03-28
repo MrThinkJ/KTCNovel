@@ -4,6 +4,7 @@ import com.mrthinkj.kythucac.model.book.Book;
 import com.mrthinkj.kythucac.model.book.BookStatistic;
 import com.mrthinkj.kythucac.model.book.ChapterPurchase;
 import com.mrthinkj.kythucac.model.user.Account;
+import com.mrthinkj.kythucac.modelDTO.book.BookStatisticDTO;
 import com.mrthinkj.kythucac.modelDTO.book.ChapterPurchaseDTO;
 import com.mrthinkj.kythucac.repository.book.BookStatisticRepository;
 import com.mrthinkj.kythucac.repository.book.ChapterPurchaseRepository;
@@ -24,13 +25,17 @@ public class BookStatisticService {
     @Autowired
     Convert convert;
 
-    public List<Map<Integer, LocalDate>> getRevenueLastTenDays(String bookName){
+    public List<BookStatisticDTO> getBookStatisticList(Account account){
+        return bookStatisticRepository.findListBookStatisticByAccountIdConvert(account.getId());
+    }
+
+    public List<List<Object>> getRevenueLastTenDays(String bookName){
         return chapterPurchaseRepository.findRevenueLastTenDaysByBook(convert.findBookByName(bookName).getId());
     }
 
-    public List<ChapterPurchaseDTO> getLast20ChapterPurchase(String bookName){
+    public List<ChapterPurchaseDTO> getLast10ChapterPurchase(String bookName){
         Book book = convert.findBookByName(bookName);
-        return chapterPurchaseRepository.findLast20ChapterPurchaseConvert(book.getId());
+        return chapterPurchaseRepository.findLast10ChapterPurchaseConvert(book.getId());
     }
 
     public void addRevenue(Book book, int amount){
@@ -54,5 +59,10 @@ public class BookStatisticService {
         bookStatistic.setTotalRevenue(totalRevenue-amount);
         bookStatisticRepository.save(bookStatistic);
         return "succeed";
+    }
+
+    public Integer getRevenue(Book book){
+        BookStatistic bookStatistic = bookStatisticRepository.findByBook(book);
+        return bookStatistic.getTotalRevenue();
     }
 }
