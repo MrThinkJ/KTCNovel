@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLDataException;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/tin-nhan")
@@ -25,7 +27,8 @@ public class MessageController {
     public String showAllNewMessage(@ModelAttribute("userAccount") Account account,
                                     Model model){
         model.addAttribute("messageList", messageService.getNewestMessageListByAccount(account));
-        return "user/message";
+        model.addAttribute("account", account);
+        return "user/total-message";
     }
 
     @GetMapping("/{accountId}")
@@ -33,7 +36,7 @@ public class MessageController {
                                                @PathVariable Integer accountId,
                                                Model model){
         if (accountId == account.getId()){
-            return "403";
+            return "exception/not-found";
         }
         Account toAccount = accountService.getAccountById(accountId);
         model.addAttribute("messageList", messageService.getMessageListBetweenTwoAccount(account, toAccount));
@@ -52,6 +55,11 @@ public class MessageController {
         }
         String status = messageService.sendMessage(account, accountId, message);
         return status;
+    }
+
+    @GetMapping("/api/unseen")
+    public @ResponseBody Boolean hasUnseenMessage(@ModelAttribute("userAccount") Account account){
+        return messageService.hasUnseenMessage(account);
     }
 
     @ModelAttribute("userAccount")

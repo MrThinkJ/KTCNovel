@@ -32,6 +32,9 @@ public class ChapterController {
     public String showChapterPage(@PathVariable String bookName,
                                   @PathVariable String chapterIndex,
                                   @ModelAttribute("userAccount") Account account) {
+        if (bookName.equals("icon")){
+            return null;
+        }
         Book book = convert.findBookByName(bookName);
         Chapter chapter = chapterService.getChapterByBookIdAndChapterIndex(book, chapterIndex);
         if (chapter == null)

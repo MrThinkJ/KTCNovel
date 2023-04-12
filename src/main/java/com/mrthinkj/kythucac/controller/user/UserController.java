@@ -25,7 +25,7 @@ public class UserController {
         UserDTO user = userService.getUserById(id);
         List<BookSimple> bookSimpleList = bookReadService.get3BookReadRecentByAccount(id);
         if (user == null)
-            return "404";
+            return "exception/not-found";
         model.addAttribute("user", user);
         model.addAttribute("bookList", bookSimpleList);
         return "user/profile";

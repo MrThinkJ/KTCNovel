@@ -66,7 +66,7 @@ public class BookService {
 
     public List<List<Object>> getBookRecentHome() {
         List<List<Object>> bookRecentList = new ArrayList<>();
-        List<Book> bookList = bookRepository.findFirst10ByOrderByPostDateDesc();
+        List<Book> bookList = bookRepository.findFirst10ByChapter();
         bookList.stream().forEach(item -> {
             List<Object> objectList = new ArrayList<>();
             objectList.add(item);
@@ -116,8 +116,13 @@ public class BookService {
         bookRepository.save(book);
     }
 
+    public void deleteBook(Book book){
+        bookRepository.deleteBookTypeByBookId(book.getId());
+        bookRepository.deleteBook(book.getId());
+    }
+
     public List<Book> getListBookByName(String keyword){
-        return bookRepository.findByNameLike(keyword);
+        return bookRepository.findByNameLike("%"+keyword+"%");
     }
 
     public List<Book> getListBookByType(int typeId){

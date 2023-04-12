@@ -4,12 +4,28 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="com.google.gson.Gson"%>
+<%@ page import="java.util.*" %>
+<%
+    List<List<Object>> revenue = (List<List<Object>>) request.getAttribute("revenue");
+    Gson gsonObj = new Gson();
+    Map<Object,Object> map = null;
+    List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
+    for (List<Object> day : revenue){
+        Date date = (Date)day.get(1);
+        long timestamp = date.getTime();
+        map = new HashMap<Object,Object>(); map.put("x", timestamp); map.put("y", day.get(0)); list.add(map);
+    }
+    String dataPoints = gsonObj.toJson(list);
+    System.out.println(dataPoints.toString());
+%>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/poster/book-detail-statistic.css"/>
     <link rel="stylesheet" href="/css/poster/header-manager.css"/>
     <link rel="shortcut icon" href="./icon/favicon.ico" type="image/x-icon">
@@ -31,6 +47,33 @@
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"
     ></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            const chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                exportEnabled: true,
+                title: {
+                    text: "Doanh Thu"
+                },
+                axisX: {
+                    title: "Date",
+                    valueFormatString: "DD/MM/YYYY",
+                    type: "date"
+                },
+                axisY:{
+                    includeZero: true
+                },
+                data: [{
+                    xValueType: "dateTime",
+                    type: "column",
+                    indexLabelFontColor: "#5A5757",
+                    indexLabelPlacement: "outside",
+                    dataPoints: <%out.print(dataPoints);%>
+                }]
+            });
+            chart.render();
+        }
+    </script>
 </head>
 <body>
 <jsp:include page="../page/header-manager.jsp"/>
@@ -61,10 +104,10 @@
 <div class="head-bar">
     <ul>
         <li class="home">
-            <a href="" class="nav-link"><i class="fa-solid fa-house"></i></a>
+            <a href="/" class="nav-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="user">
-            <a href="" class="nav-link"><i class="fa-solid fa-user"></i></a>
+            <a href="/tai-khoan/cai-dat" class="nav-link"><i class="fa-solid fa-user"></i></a>
         </li>
     </ul>
 </div>
@@ -80,6 +123,7 @@
                 Giao dịch
             </div>
         </a>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
     </div>
     <div class="purchase-list">
         <div class="title">Danh sách mua chương gần nhất<i class="fa-solid fa-circle"></i></div>
@@ -96,7 +140,7 @@
                         <div class="chapter-name col-4">${chapter.chapterName}</div>
                         <div class="puchase-date col-2">${chapter.purchaseDate}</div>
                         <div class="chapter-price col-2">
-                            ${chapter.chapterPrice} <img class="currency" src="/image_upload/page.currency.png" alt="" />
+                            ${chapter.chapterPrice} <img class="currency" src="/images/page/currency.png" alt="" style="width: 20px;"/>
                         </div>
                         <div class="username-purchase col-2">
                             <a href="">${chapter.username}</a>
@@ -107,9 +151,10 @@
         </div>
     </div>
     <div class="note">
-        * Lưu ý: Danh sách trên là 10 chương gần nhất được mua, xem đầy đủ tại -> <a href="/novel/statistic/${bookLink}/excel">Thống kê</a>
+        * Lưu ý: Danh sách trên là 10 chương gần nhất được mua, xem đầy đủ tại -> <a href="/nguoi-dang/novel/statistic/${bookLink}/excel">Thống kê</a>
     </div>
 </main>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="/js/poster/book-detail-statistic.js"/>
 </body>
 </html>

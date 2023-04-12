@@ -7,7 +7,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>hello</title>
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <link href="/css/user/profile-style.css" rel="stylesheet">
     <link href="/css/page/header.css" rel="stylesheet">
     <link href="<c:url value="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"/> " rel="stylesheet">
@@ -39,10 +40,10 @@
                         <div class="username">${user.username}</div>
                     </div>
                     <div class="wrapper-message">
-                        <div class="message">
+                        <a href="/tin-nhan/${user.id}" class="message" style="color: #fff">
                             <i class="fa-regular fa-message"></i>
                             <div>Nhắn tin</div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="user_detail">

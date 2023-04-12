@@ -21,6 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
@@ -28,6 +29,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -142,9 +144,19 @@ public class AccountController {
     }
 
     @PostMapping("/setting/update-user")
-    public String updateUser(@ModelAttribute("userAccount") Account account,
-                             @ModelAttribute("user") User user){
-        return userService.updateUser(account, user);
+    public @ResponseBody String updateUser(@ModelAttribute("userAccount") Account account,
+                             @Valid @ModelAttribute("user") User user,
+                             BindingResult result,
+                             HttpServletRequest request){
+        if (result.hasErrors()){
+            return "error";
+        }
+        userService.updateUser(account, user);
+        Account newAccount = accountService.getAccountByUsernameAndPassword(account.getUsername(), account.getPassword());
+        HttpSession session = request.getSession();
+        session.removeAttribute("userAccount");
+        session.setAttribute("userAccount", newAccount);
+        return "success";
     }
 
     private static Optional<String> getFileExtension(String fileName) {

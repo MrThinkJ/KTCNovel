@@ -10,10 +10,12 @@ import com.mrthinkj.kythucac.service.book.BookEvaluateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,23 +23,30 @@ import java.util.List;
 public class EvaluateBookController {
     @Autowired
     BookEvaluateService bookEvaluateService;
+
     @PostMapping("/{bookName}/like")
     @CheckAccount
     public void addLikeToBook(@ModelAttribute("userAccount") Account account,
-                              @PathVariable String bookName){
+                              @PathVariable String bookName) {
         bookEvaluateService.toggleLikeToBook(bookName, account);
     }
 
     @PostMapping("/{bookName}/view")
-    public void addViewToBook(@PathVariable String bookName){
+    public void addViewToBook(@PathVariable String bookName) {
         bookEvaluateService.addViewToBook(bookName);
     }
 
     @PostMapping("/{bookName}/process-rate")
     @CheckAccount
     public String addRateToBook(@ModelAttribute("userAccount") Account account,
-                              @PathVariable String bookName,
-                              @ModelAttribute("rate") Rate rate){
+                                @PathVariable String bookName,
+                                @Valid @ModelAttribute("rate") Rate rate,
+                                BindingResult result) {
+        if (account == null)
+            return "null";
+        if (result.hasErrors()){
+            return "error";
+        }
         bookEvaluateService.addRateToBook(account, bookName, rate);
         return "success";
     }
@@ -45,24 +54,30 @@ public class EvaluateBookController {
     @PostMapping("/{bookName}/process-comment")
     @CheckAccount
     public String addCommentToBook(@ModelAttribute("userAccount") Account account,
-                                 @PathVariable String bookName,
-                                 @ModelAttribute("rate") Comment comment){
+                                   @PathVariable String bookName,
+                                   @Valid @ModelAttribute("rate") Comment comment,
+                                   BindingResult result) {
+        if (account == null)
+            return "null";
+        if (result.hasErrors()){
+            return "error";
+        }
         bookEvaluateService.addCommentToBook(account, bookName, comment);
         return "success";
     }
 
     @ExceptionHandler(NullPointerException.class)
     public String handleException(Exception ex) {
-        return "404";
+        return "exception/not-found";
     }
 
     @ExceptionHandler(ForbiddenException.class)
     public String handleForbidden(Exception ex) {
-        return "403";
+        return "exception/access-denied";
     }
 
     @ModelAttribute("userAccount")
-    public Account getAccount(HttpSession session){
+    public Account getAccount(HttpSession session) {
         return (Account) session.getAttribute("userAccount");
     }
 }

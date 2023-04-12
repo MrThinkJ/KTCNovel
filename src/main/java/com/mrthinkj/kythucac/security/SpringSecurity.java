@@ -10,11 +10,19 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.session.InvalidSessionStrategy;
+import org.springframework.security.web.session.SimpleRedirectInvalidSessionStrategy;
+import org.springframework.session.web.http.CookieSerializer;
+import org.springframework.session.web.http.DefaultCookieSerializer;
 
 @Configuration
 @EnableWebSecurity
@@ -59,7 +67,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin", "/admin/*").access("hasAnyRole('ROLE_ADMIN')")
                 .antMatchers("/*", "/truyen/*", "/truyen/*/*", "/register",
                                         "/login/*", "/trang-ca-nhan/*", "/tai-khoan/image/*",
-                                        "/truyen/image/*", "/truyen/api/*/*").permitAll()
+                                        "/truyen/image/*", "/truyen/api/*/*", "/bang-xep-hang/*").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

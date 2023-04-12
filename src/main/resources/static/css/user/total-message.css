@@ -1,0 +1,72 @@
+.background {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    bottom: -2px;
+    box-shadow: 3px -4px 15px 20px #fff;
+    z-index: 0;
+}
+
+.background_image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.total-message {
+    max-width: 900px !important;
+    height: auto;
+    min-height: 550px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: -80px;
+    z-index: 2;
+    box-shadow: 0px 0px 20px 10px #00000025;
+    margin-bottom: 50px;
+}
+
+.wrapper-message{
+    padding: 20px;
+}
+
+.message-container{
+    display: flex;
+    padding: 15px 10px;
+    border-bottom: 1px solid #0000001e;
+    position: relative;
+}
+
+.message-container:hover{
+    background-color: #8a8a8a1e;
+}
+
+.avatar img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.content .name{
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+}
+
+.content .last-message{
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.message-link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

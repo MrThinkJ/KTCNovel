@@ -78,6 +78,8 @@ function addEventLogin(){
     loginBtn.addEventListener("click", (event) => {
         event.preventDefault();
         const formData = $("#login-form").serialize();
+        const loading = `<div class="lds-ripple"><div></div><div></div></div>`;
+        loginBtn.innerHTML = loading;
         $.ajax({
             type: "POST",
             url: "/login",
@@ -95,7 +97,33 @@ function addEventLogin(){
                     setTimeout(() => {
                         noti.removeChild(error);
                     }, 3000);
-                } else {
+                } else if(response == 'resend'){
+                    const success = document.createElement("div");
+                    success.innerText = "Vui lòng kiểm tra email và xác nhận tài khoản";
+                    success.classList.add("success");
+                    const noti = document.querySelector(".notification");
+                    noti.appendChild(success);
+                    setTimeout(() => {
+                        success.classList.add("hide");
+                    }, 2500);
+                    setTimeout(() => {
+                        noti.removeChild(success);
+                    }, 3000);
+                    loginBtn.innerHTML = "<button>Đăng nhập</button>";
+                } else if (response == "check"){
+                    const success = document.createElement("div");
+                    success.innerText = "Kiểm tra email và xác nhận tài khoản";
+                    success.classList.add("success");
+                    const noti = document.querySelector(".notification");
+                    noti.appendChild(success);
+                    setTimeout(() => {
+                        success.classList.add("hide");
+                    }, 2500);
+                    setTimeout(() => {
+                        noti.removeChild(success);
+                    }, 3000);
+                    loginBtn.innerHTML = "<button>Đăng nhập</button>";
+                }else {
                     window.location.href = "/";
                 }
             },
@@ -117,11 +145,12 @@ registerPage.addEventListener("click", function (event) {
         border.classList.add("active");
         main.removeChild(login);
         main.insertAdjacentElement("beforeEnd", registerDiv);
-
         const registerBtn = document.querySelector(".button");
         registerBtn.addEventListener("click", (e) => {
             e.preventDefault();
             const formData = $("#register-form").serialize();
+            const loading = `<div class="lds-ripple"><div></div><div></div></div>`;
+            registerBtn.innerHTML = loading;
             $.ajax({
                 type: "POST",
                 url: "/register",
@@ -139,6 +168,7 @@ registerPage.addEventListener("click", function (event) {
                         setTimeout(() => {
                             noti.removeChild(error);
                         }, 3000);
+                        registerBtn.innerHTML = "<button>Đăng ký</button>";
                     }
                     else{
                         const success = document.createElement("div");
@@ -152,6 +182,7 @@ registerPage.addEventListener("click", function (event) {
                         setTimeout(() => {
                             noti.removeChild(success);
                         }, 3000);
+                        registerBtn.innerHTML = "<button>Đăng ký</button>";
                     }
                 },
                 error: function (xhr, status, error) {

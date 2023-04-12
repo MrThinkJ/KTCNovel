@@ -24,7 +24,7 @@ public interface ChapterPurchaseRepository extends PagingAndSortingRepository<Ch
     @Query(value = "select account_id from chapter_purchase where account_id = ?1 and chapter_id=?2", nativeQuery = true)
     Integer findAccountIdByAccountIdAndChapterId(int accountId, int chapterId);
 
-    @Query(value = "select sum(chapter_price), purchase_date from chapter_purchase cp join chapter c on c.id = cp.chapter_id where c.book_id = ?1 group by purchase_date;", nativeQuery = true)
+    @Query(value = "select sum(chapter_price), purchase_date from chapter_purchase cp join chapter c on c.id = cp.chapter_id where c.book_id = ?1 group by purchase_date", nativeQuery = true)
     List<List<Object>> findRevenueLastTenDaysByBook(int bookId);
 
     @Query(value = "select chapter_name, purchase_date, chapter_price, user_name, u.id from chapter_purchase as cp join chapter c on c.id = cp.chapter_id join account a on a.id = cp.account_id join user u on u.id = a.id where c.book_id = ?1 order by purchase_date desc limit 10;", nativeQuery = true)

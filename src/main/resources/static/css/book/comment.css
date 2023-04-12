@@ -27,7 +27,7 @@
     position: relative;
 }
 
-.mai-avatar>img {
+.mai-avatar > img {
     max-width: 100%;
     margin: auto;
     -webkit-border-radius: 50%;
@@ -121,7 +121,7 @@
 }
 
 
-#footer{
+#footer {
     background-image: url(../img/footer-bg.png);
 }
 
@@ -133,7 +133,7 @@
 }
 
 
-.linkToRead .reading{
+.linkToRead .reading {
     background-color: #0e8388;
     padding: 10px 20px;
     border-radius: 30px;
@@ -142,16 +142,16 @@
     transition: .1s all;
 }
 
-.linkToRead .reading:hover{
+.linkToRead .reading:hover {
     background-color: #0c6568;
 }
 
-.linkToRead .mark_book:hover{
+.linkToRead .mark_book:hover {
     background-color: #00000074;
     color: #fff;
 }
 
-.linkToRead .mark_book{
+.linkToRead .mark_book {
     padding: 10px 20px;
     border-radius: 30px;
     border: 1px solid #00000071;
@@ -162,63 +162,63 @@
     transition: .1s all;
 }
 
-.linkToRead .reading i{
+.linkToRead .reading i {
     margin-right: 5px;
 }
 
-.linkToRead .mark_book i{
+.linkToRead .mark_book i {
     margin-right: 5px;
 }
 
-.tag_book a{
+.tag_book a {
     border-radius: 30px;
     margin-left: 10px;
 }
 
-.tag_book{
+.tag_book {
     margin-left: -10px;
 }
 
-.evaluate .num{
+.evaluate .num {
     font-size: 17px;
     font-weight: 600;
 }
 
-.evaluate .text{
+.evaluate .text {
     font-size: 14px;
     opacity: 0.7;
 }
 
-#intro{
+#intro {
     padding: 0px 10px;
 }
 
-.navigation{
+.navigation {
     display: flex;
     margin-top: 30px;
 }
 
-.navigation a{
+.navigation a {
     color: #000000cc;
 }
 
-.navigation div{
+.navigation div {
     padding: 10px 20px;
     font-size: 17px;
     font-weight: 500;
 }
 
-.navigation .active{
+.navigation .active {
     border-bottom: 5px solid #0c6568;
 }
 
-.main .wrapper-comment-form{
+.main .wrapper-comment-form {
     margin-top: 30px;
     border-radius: 8px;
     padding: 10px 20px;
 }
 
-#content{
+#content {
     border: 1px solid #0c6568;
     width: 99%;
     height: 100px;
@@ -228,18 +228,18 @@
     padding: 10px;
 }
 
-.rate-content label{
+.rate-content label {
     position: absolute;
     opacity: 0.7;
     margin-top: 10px;
     margin-left: 10px;
 }
 
-#content:focus-visible{
+#content:focus-visible {
     outline: 3px solid #7ac3c5;
 }
 
-.submit{
+.submit {
     border: none;
     background-color: #0c6568;
     color: #fff;
@@ -250,52 +250,96 @@
     margin-bottom: 10px;
 }
 
-.comment{
+.comment {
     margin-top: 20px;
     border-bottom: 1px solid #00000018;
     padding-bottom: 30px;
 }
 
-.wrapper-content{
+.wrapper-content {
     margin-top: 40px;
 }
 
-.wrapper-comment{
+.wrapper-comment {
     margin-top: 30px;
 }
 
-.head-comment{
+.head-comment {
     display: flex;
 }
 
-.head-comment .user-avatar img{
+.head-comment .user-avatar img {
     border-radius: 50%;
 }
 
-.head-comment .information{
+.head-comment .information {
     margin-left: 20px;
 }
 
-.head-comment .information .username{
+.head-comment .information .username {
     font-weight: 600;
 }
 
-.head-comment .wrapper-rate{
+.head-comment .wrapper-rate {
     display: flex;
 }
 
-.head-comment .wrapper-rate .rate{
+.head-comment .wrapper-rate .rate {
     font-weight: 500;
     opacity: 0.7;
 }
 
-.head-comment .wrapper-rate .rate-date i{
+.head-comment .wrapper-rate .rate-date i {
     margin-right: 5px;
     opacity: 0.7;
 }
 
-.comment .content{
+.comment .content {
     margin-left: 65px;
     font-size: 15px;
     margin-top: 10px;
+}
+
+.notice .error {
+    position: fixed;
+    width: 200px;
+    height: 90px;
+    background-color: #d11f1fef;
+    color: #fff;
+    top: 0;
+    right: 0;
+    margin-top: 70px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    animation: errorShow .5s linear forwards alternate;
+}
+
+.notice .error::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #801b1b;
+}
+
+.notice .hide {
+    animation: errorHide .5s linear forwards alternate;
+}
+
+@keyframes errorShow {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes errorHide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

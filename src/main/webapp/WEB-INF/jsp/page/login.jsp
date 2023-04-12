@@ -8,7 +8,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>hello</title>
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <link href="<c:url value="/css/page/login.css" />" rel="stylesheet">
     <link href="<c:url value="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"/> "
           rel="stylesheet">

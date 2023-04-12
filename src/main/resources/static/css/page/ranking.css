@@ -1,0 +1,120 @@
+.background {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    bottom: -2px;
+    box-shadow: 3px -4px 15px 20px #fff;
+    z-index: 0;
+}
+
+.background_image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+#wp-content .container {
+    position: relative;
+    z-index: 999;
+    background-color: #fff;
+    margin-top: -50px;
+    border-radius: 10px;
+    padding: 30px 20px;
+    margin-bottom: 50px;
+}
+
+#wp-content .container .rank-type {
+}
+
+#wp-content .container .rank-type .type {
+    padding: 10px 30px;
+    background-color: #f8de6a11;
+    color: #000;
+}
+
+#wp-content .container .rank-type .active {
+    background-color: #0e8388;
+    color: #fff;
+}
+
+#wp-content .container .rank-type .type i {
+    margin-right: 10px;
+}
+
+#wp-content .container .rank-type .type:hover {
+    background-color: #0e8388;
+    color: #fff;
+}
+
+#wp-content .container .book {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+#wp-content .container .book .book-image {
+    margin-right: 20px;
+}
+
+#wp-content .container .book .book-image img {
+    width: 100px;
+}
+
+#wp-content .container .book .book-name{
+    font-size: 19px;
+    font-weight: 500;
+}
+
+#wp-content .container .book .book-name a{
+    color: #000;
+}
+
+#wp-content .container .book .book-name a:hover{
+    color: var(--hover-color);
+}
+
+#wp-content .container .book .book-description{
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+#wp-content .container .book .book-foot{
+    margin-top: 12px;
+    display: flex;
+}
+
+.book .book-foot .book-author i{
+    font-size: 13px;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+.book .book-foot .book-statistic{
+    display: flex;
+    margin-left: 40px;
+    opacity: 0.7;
+}
+
+.book .book-foot .book-statistic div{
+    margin-right: 6px;
+}
+
+.book .book-foot .book-type{
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000c7 !important;
+    border: 1px solid #000000c7;
+    padding: 2px 8px;
+    margin-left: 40px;
+}

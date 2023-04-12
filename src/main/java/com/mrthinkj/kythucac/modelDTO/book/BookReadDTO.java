@@ -17,10 +17,12 @@ public class BookReadDTO {
     private int totalChapter;
 
     public String convertAll(){
-        String outputString = Normalizer.normalize(bookName, Normalizer.Form.NFD)
-                .replaceAll("[^\\p{ASCII}\\w]+", "-")
-                .replaceAll("\\W", "-")
-                .toLowerCase();
-        return outputString;
+        String output = Normalizer.normalize(bookName, Normalizer.Form.NFD)
+                .replaceAll("[đĐ]", "[d]")
+                .replaceAll("[^\\p{ASCII}]+", "") // Remove non-ASCII characters
+                .replace("[", "").replace("]", "")
+                .replaceAll("\\W+", "-") // Replace consecutive non-word characters with a single hyphen
+                .toLowerCase(); // Convert to lowercase
+        return output;
     }
 }

@@ -328,3 +328,47 @@
     font-size: 15px;
     margin-top: 10px;
 }
+
+.notice .error{
+    position: fixed;
+    width: 200px;
+    height: 90px;
+    background-color: #d11f1fef;
+    color: #fff;
+    top: 0;
+    right: 0;
+    margin-top: 70px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    animation: errorShow .5s linear forwards alternate;
+}
+
+.notice .error::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #801b1b;
+}
+
+.notice .hide{
+    animation: errorHide .5s linear forwards alternate;
+}
+
+@keyframes errorShow {
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes errorHide {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

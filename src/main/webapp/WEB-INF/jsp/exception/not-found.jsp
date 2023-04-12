@@ -8,8 +8,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>hello</title>
-    <link href="<c:url value="/css/style-error.css" />" rel="stylesheet">
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
+    <link href="<c:url value="/css/page/not-found.css" />" rel="stylesheet">
     <link href="<c:url value="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"/> "
           rel="stylesheet">
     <script type="text/javascript" src="<c:url value="/webjars/bootstrap/5.1.3/js/bootstrap.min.js"/>"></script>
@@ -27,9 +28,9 @@
         NOT FOUND
     </div>
     <div class="error">
-        We are sorry, but this page does not exist
+        Đường này không lối, quay đầu là bờ
     </div>
-    <a class="home" href="/">GO BACK TO HOMEPAGE</a>
+    <a class="home" href="/">VỀ BỜ</a>
 </div>
 </body>
 </html>

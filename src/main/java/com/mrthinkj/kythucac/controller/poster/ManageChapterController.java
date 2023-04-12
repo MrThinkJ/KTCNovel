@@ -10,10 +10,12 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,8 +41,12 @@ public class ManageChapterController {
     @CheckBookAccount
     public @ResponseBody String addChapter(@ModelAttribute("userAccount") Account account,
                                            @PathVariable String bookName,
-                                           @ModelAttribute("chapter") Chapter chapter,
-                                           @RequestParam("file") MultipartFile file) {
+                                           @Valid @ModelAttribute("chapter") Chapter chapter,
+                                           @Valid @RequestParam("file") MultipartFile file,
+                                           BindingResult result) {
+        if (result.hasErrors()){
+            return "error";
+        }
         String content;
         StringBuilder sb = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
@@ -62,6 +68,9 @@ public class ManageChapterController {
                                         @PathVariable String bookName,
                                         @PathVariable String chapterIndex,
                                         Model model) {
+        if (chapterIndex == null){
+            return "poster/update-chapter";
+        }
         Chapter chapter = chapterService.getChapterByBookIdAndChapterIndexUpdate(bookName, chapterIndex, account);
         model.addAttribute("chapter", chapter);
         model.addAttribute("bookName", chapter.getBook().getName());
@@ -72,8 +81,12 @@ public class ManageChapterController {
     @CheckBookAccount
     public @ResponseBody String updateChapter(@ModelAttribute("userAccount") Account account,
                                               @PathVariable String bookName,
-                                              @ModelAttribute("chapter") Chapter chapter,
-                                              @RequestParam("file") MultipartFile file) {
+                                              @Valid @ModelAttribute("chapter") Chapter chapter,
+                                              @Valid @RequestParam("file") MultipartFile file,
+                                              BindingResult result) {
+        if (result.hasErrors()){
+            return "error";
+        }
         String content;
         StringBuilder sb = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
@@ -96,12 +109,12 @@ public class ManageChapterController {
 
     @ExceptionHandler(ForbiddenException.class)
     public String handleForbiddenException() {
-        return "403";
+        return "exception/access-denied";
     }
 
     @ExceptionHandler(NullPointerException.class)
     public String handleNullPointerException() {
-        return "404";
+        return "exception/not-found";
     }
 
 

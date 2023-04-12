@@ -5,6 +5,7 @@ import com.mrthinkj.kythucac.model.system.Transaction;
 import com.mrthinkj.kythucac.model.system.TransactionStatus;
 import com.mrthinkj.kythucac.model.user.Account;
 import com.mrthinkj.kythucac.repository.system.TransactionRepository;
+import com.mrthinkj.kythucac.service.admin.AdminService;
 import com.mrthinkj.kythucac.service.book.BookStatisticService;
 import com.mrthinkj.kythucac.service.convert.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class TransactionService {
     Convert convert;
     @Autowired
     BookStatisticService bookStatisticService;
+    @Autowired
+    AdminService adminService;
 
     public String addNewTransaction(Transaction transaction, Account account, String bookName){
         Book book = convert.findBookByName(bookName);
@@ -48,12 +51,14 @@ public class TransactionService {
 
     public void confirmTransaction(int transactionId){
         Transaction transaction = transactionRepository.findById(transactionId);
+//        adminService.confirmTransaction(transaction.getAccount());
         transaction.setStatus(TransactionStatus.confirm);
         transactionRepository.save(transaction);
     }
 
     public void cancelTransaction(int transactionId){
         Transaction transaction = transactionRepository.findById(transactionId);
+//        adminService.cancelTransaction(transaction.getAccount());
         transaction.setStatus(TransactionStatus.cancel);
         transactionRepository.save(transaction);
     }

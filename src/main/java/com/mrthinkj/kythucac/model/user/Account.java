@@ -39,6 +39,10 @@ public class Account {
 
     private Boolean enabled;
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
     public List<Book> getBookList() {
         return bookList;
     }

@@ -59,6 +59,9 @@ $(document).ready(function () {
                 ).innerHTML = `Chương ${chapter.index}: ${chapter.name}`;
                 document
                     .querySelector(".book-name")
+                    .setAttribute("href", `/truyen/${bookName}`);
+                document
+                    .querySelector(".book-name")
                     .insertAdjacentText("beforeend", book.name);
                 document
                     .querySelector(".book-author")
@@ -128,5 +131,5 @@ $(document).ready(function () {
                 console.log(error);
             },
         });
-    }, 120000)
+    }, 2000)
 });

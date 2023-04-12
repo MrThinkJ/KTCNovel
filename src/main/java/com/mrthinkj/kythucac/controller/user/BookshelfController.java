@@ -66,7 +66,7 @@ public class BookshelfController {
 
     @ExceptionHandler(Exception.class)
     public String handleException(Exception ex) {
-        return "404";
+        return "exception/not-found";
     }
 
     @ModelAttribute("userAccount")

@@ -1,0 +1,173 @@
+.background {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    bottom: -2px;
+    box-shadow: 3px -4px 15px 20px #fff;
+    z-index: 0;
+}
+
+.background_image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+#wp-content .container {
+    position: relative;
+    z-index: 999;
+    background-color: #fff;
+    margin-top: -50px;
+    border-radius: 10px;
+    padding: 30px 20px;
+    margin-bottom: 50px;
+}
+
+#wp-content .wrapper-type .selected-type{
+    border-bottom: 1px solid #00000034;
+    padding-bottom: 15px;
+}
+
+#wp-content .wrapper-type .selected-type .selected-title{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#wp-content .wrapper-type .selected-type .selected{
+    color: #fff;
+    font-size: 12px;
+    -webkit-user-select: none;
+    background-color: #4d7b7c;
+    border: 1.7px solid #4d7b7c;
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#wp-content .wrapper-type .type-title{
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+#wp-content .wrapper-type .type-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -7px;
+    margin-top: 5px;
+}
+
+#wp-content .wrapper-type .type-container .type{
+    color: #000;
+    font-size: 12px;
+    -webkit-user-select: none;
+    border: 1.7px solid #4d7b7c;
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-left: 7px;
+    margin-top: 10px;
+    transition: all .1s;
+}
+
+#wp-content .wrapper-type .type-container .type:hover{
+    background-color: #4d7b7c;
+    color: #fff;
+}
+
+#wp-content .container .book {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+#wp-content .container .book .book-image {
+    margin-right: 20px;
+}
+
+#wp-content .container .book .book-image img {
+    width: 100px;
+}
+
+#wp-content .container .book .book-name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#wp-content .container .book .book-name a {
+    color: #000;
+}
+
+#wp-content .container .book .book-name a:hover {
+    color: var(--hover-color);
+}
+
+#wp-content .container .book .book-description {
+    font-size: 13px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+#wp-content .container .book .book-foot {
+    margin-top: 20px;
+    display: flex;
+}
+
+.book .book-foot .book-author i {
+    font-size: 13px;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+.book .book-foot .book-type {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000000c7 !important;
+    border: 1px solid #000000c7;
+    padding: 2px 8px;
+    margin-left: 40px;
+}
+
+.sort-method {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.sort-method .sort-title{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.sort-method .sort-type{
+    color: #000;
+    font-size: 12px;
+    -webkit-user-select: none;
+    border: 1.7px solid #4d7b7c;
+    padding: 3px 8px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.sort-method .active{
+    color: #fff;
+    font-size: 12px;
+    -webkit-user-select: none;
+    background-color: #4d7b7c;
+    border: 1.7px solid #4d7b7c;
+    padding: 3px 8px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-left: 15px;
+}

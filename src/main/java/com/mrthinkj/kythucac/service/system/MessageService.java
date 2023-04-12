@@ -23,6 +23,13 @@ public class MessageService {
     }
 
     public List<Message> getMessageListBetweenTwoAccount(Account mainAccount, Account account){
+        Message lastMessage = messageRepository.findLastMessageBetweenTwoAccount(mainAccount.getId(), account.getId(), mainAccount.getId(), account.getId());
+        if (lastMessage != null){
+            if (lastMessage.getToAccount().getId() == mainAccount.getId()){
+                lastMessage.setSeen(true);
+                messageRepository.save(lastMessage);
+            }
+        }
         return messageRepository.findByFromAccountAndToAccountOrToAccountAndFromAccountOrderBySendDateAsc(mainAccount, account, mainAccount, account);
     }
 
@@ -31,11 +38,19 @@ public class MessageService {
         message.setFromAccount(fromAccount);
         message.setToAccount(toAccount);
         message.setSendDate(LocalDateTime.now());
+        message.setSeen(false);
         try{
             messageRepository.save(message);
         } catch (Exception e){
             return "Tin nhắn quá dài !";
         }
         return "success";
+    }
+
+    public Boolean hasUnseenMessage(Account account){
+        Message message = messageRepository.findMessageUnseenByAccount(account.getId());
+        if (message == null)
+            return false;
+        return true;
     }
 }

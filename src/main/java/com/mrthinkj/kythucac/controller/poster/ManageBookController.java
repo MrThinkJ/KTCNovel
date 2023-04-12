@@ -50,7 +50,7 @@ public class ManageBookController {
 
     @GetMapping("/transaction")
     public String showTransaction(@ModelAttribute("userAccount") Account account,
-                                  Model model){
+                                  Model model) {
         model.addAttribute("transactionList", transactionService.getListTransactionByAccount(account));
         return "poster/transaction";
     }
@@ -58,8 +58,8 @@ public class ManageBookController {
     @GetMapping("/novel/cash-out/{bookName}")
     @CheckBookAccount
     public String showCashOutForm(@ModelAttribute("userAccount") Account account,
-                              @PathVariable String bookName,
-                              Model model){
+                                  @PathVariable String bookName,
+                                  Model model) {
         model.addAttribute("bookName", convert.getBookName(bookName));
         model.addAttribute("bookLink", bookName);
         return "poster/cash-out";
@@ -70,7 +70,7 @@ public class ManageBookController {
     public @ResponseBody String cashOut(@ModelAttribute("userAccount") Account account,
                                         @PathVariable String bookName,
                                         @Valid @ModelAttribute("transaction") Transaction transaction,
-                                        BindingResult result){
+                                        BindingResult result) {
         if (result.hasErrors())
             return "blank";
         String status = transactionService.addNewTransaction(transaction, account, bookName);
@@ -81,7 +81,7 @@ public class ManageBookController {
     @CheckBookAccount
     public String showBook(@ModelAttribute("userAccount") Account account,
                            @PathVariable String bookName,
-                           Model model){
+                           Model model) {
         Book book = convert.findBookByName(bookName);
         List<ChapterSimple> chapterList = chapterService.getChapterSimpleListByBookName(bookName);
         model.addAttribute("book", book);
@@ -101,8 +101,12 @@ public class ManageBookController {
     }
 
     @PostMapping("/novel/add/process")
-    public @ResponseBody String addNewBook(@ModelAttribute("book") Book book,
-                                           @ModelAttribute("userAccount") Account account) {
+    public @ResponseBody String addNewBook(@Valid @ModelAttribute("book") Book book,
+                                           @ModelAttribute("userAccount") Account account,
+                                           BindingResult result) {
+        if (result.hasErrors()) {
+            return "error";
+        }
         List<Type> typeList = book.getTypeList();
         String status = bookService.addNewBook(book, typeList, account);
         return status;
@@ -111,8 +115,8 @@ public class ManageBookController {
     @GetMapping("/novel/update/{bookName}")
     @CheckBookAccount
     public String showFormUpdateBook(@ModelAttribute("userAccount") Account account,
-                                 @PathVariable String bookName,
-                                 Model model) {
+                                     @PathVariable String bookName,
+                                     Model model) {
         Book book = bookService.getBook(bookName);
         model.addAttribute(book);
         if (!model.containsAttribute("type"))
@@ -125,11 +129,27 @@ public class ManageBookController {
     @PostMapping("/novel/update/{bookName}/process")
     public @ResponseBody String updateBook(@ModelAttribute("userAccount") Account account,
                                            @PathVariable String bookName,
-                                           @ModelAttribute("book") Book book){
+                                           @Valid @ModelAttribute("book") Book book,
+                                           BindingResult result) {
+        if (result.hasErrors()) {
+            return "error";
+        }
         Book oldBook = convert.findBookByName(bookName);
         List<Type> typeList = book.getTypeList();
         bookService.updateBook(book, typeList, account, oldBook);
         return "success";
+    }
+
+    @PostMapping("/novel/delete/{bookName}")
+    @CheckBookAccount
+    public String deleteBook(@ModelAttribute("userAccount") Account account,
+                                           @PathVariable String bookName){
+        Book book = bookService.getBook(bookName);
+        if (book != null){
+            bookService.deleteBook(book);
+            return "/nguoi-dang";
+        }
+        return "exception/not-found";
     }
 
     @ModelAttribute("userAccount")
@@ -139,11 +159,12 @@ public class ManageBookController {
 
     @ExceptionHandler(ForbiddenException.class)
     public String handleForbiddenException() {
-        return "403";
+        return "exception/access-denied";
     }
 
     @ExceptionHandler(NullPointerException.class)
-    public String handleNullPointerException(){
-        return "404";
+    public String handleNullPointerException() {
+        return "exception/not-found";
     }
+
 }

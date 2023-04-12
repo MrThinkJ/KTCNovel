@@ -27,6 +27,17 @@ public class Message {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "seen")
+    private Boolean seen;
+
+    public Boolean getSeen() {
+        return seen;
+    }
+
+    public void setSeen(Boolean seen) {
+        this.seen = seen;
+    }
+
     public int getId() {
         return id;
     }
@@ -66,4 +77,5 @@ public class Message {
     public void setContent(String content) {
         this.content = content;
     }
+
 }

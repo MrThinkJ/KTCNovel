@@ -11,39 +11,30 @@
                         <i class="fa-solid fa-caret-down icon-category"></i>
                     </div>
                     <ul class="sub-menu sub-menu-category">
-                        <li><a href="#">Tất Cả</a></li>
-                        <li><a href="">Huyền Huyễn</a></li>
-                        <li><a href="">Võng Du</a></li>
-                        <li><a href="">Đồng Nhân</a></li>
-                        <li><a href="">Cạnh Kỹ</a></li>
-                        <li><a href="">Kiếm Hiệp</a></li>
-                        <li><a href="">Tiên Hiệp</a></li>
-                        <li><a href="">Khoan Huyễn</a></li>
-                        <li><a href="">Đô Thị</a></li>
-                        <li><a href="">Dã Sử</a></li>
-                        <li><a href="">Huyền Nghi</a></li>
-                        <li><a href="">Kì Ảo</a></li>
+                        <li><a href="/truyen?type=1">Tiên Hiệp</a></li>
+                        <li><a href="/truyen?type=2">Huyền Huyễn</a></li>
+                        <li><a href="/truyen?type=3">Đô Thị</a></li>
+                        <li><a href="/truyen?type=4">Kiếm Hiệp</a></li>
+                        <li><a href="/truyen?type=5">Linh Dị</a></li>
+                        <li><a href="/truyen?type=6">Huyền Nghi</a></li>
+                        <li><a href="/truyen?type=7">Mạt Thế</a></li>
                     </ul>
                 </div>
                 <div class="rank">
                     <div class="title">
-                        <a href="#">
+                        <a href="/bang-xep-hang/doc-nhieu">
                             Bảng xếp hạng
                             <i class="fa-solid fa-caret-down icon-category"></i>
                         </a>
                     </div>
                     <ul class="sub-menu sub-menu-rank">
-                        <li><a href="#">Thịnh Hành</a></li>
-                        <li><a href="#">Đọc Nhiều</a></li>
-                        <li><a href="#">Tặng Thưởng</a></li>
-                        <li><a href="#">Đề Cử</a></li>
-                        <li><a href="#">Yêu Thích</a></li>
-                        <li><a href="#">Thảo Luận</a></li>
+                        <li><a href="/bang-xep-hang/doc-nhieu">Đọc Nhiều</a></li>
+                        <li><a href="/bang-xep-hang/yeu-thich">Yêu Thích</a></li>
                     </ul>
                 </div>
             </div>
-            <form action="" id="search-box">
-                <input type="text" id="search-text" />
+            <form action="/truyen" id="search-box" method="get">
+                <input type="text" id="search-text" name="keyword"/>
                 <button id="search-btn">
                     <i class="fa-solid fa-magnifying-glass icon-search"></i>
                 </button>
@@ -55,7 +46,7 @@
                 </a>
             </div>
             <div class="action">
-                <a href="/register" class="register">Đăng ký</a>
+                <a href="/login" class="register">Đăng ký</a>
                 <a href="/login" class="login">Đăng nhập</a>
             </div>
         </div>

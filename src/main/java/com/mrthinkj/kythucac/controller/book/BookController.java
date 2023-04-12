@@ -34,15 +34,10 @@ public class BookController {
     @Autowired
     Convert convert;
 
-    @GetMapping()
-    private List<BookSimple> showBookList() {
-        return bookService.getBookList();
-    }
-
     @GetMapping("/{bookName}")
     public String showBook(@PathVariable String bookName,
-                                 @ModelAttribute("userAccount") Account account,
-                                 Model model) {
+                           @ModelAttribute("userAccount") Account account,
+                           Model model) {
         Book book = bookService.getBook(bookName);
         model.addAttribute("book", book);
         addAttribute(model, book);
@@ -67,8 +62,8 @@ public class BookController {
 
     @GetMapping("/{bookName}/binh-luan")
     public String showComment(@PathVariable String bookName,
-                           @ModelAttribute("userAccount") Account account,
-                           Model model) {
+                              @ModelAttribute("userAccount") Account account,
+                              Model model) {
         Book book = bookService.getBook(bookName);
         model.addAttribute("book", book);
         model.addAttribute("commentList", bookEvaluateService.getCommentOfBook(book));
@@ -78,8 +73,8 @@ public class BookController {
 
     @GetMapping("/{bookName}/danh-sach-chuong")
     public String showChapterList(@PathVariable String bookName,
-                           @ModelAttribute("userAccount") Account account,
-                           Model model) {
+                                  @ModelAttribute("userAccount") Account account,
+                                  Model model) {
         Book book = bookService.getBook(bookName);
         model.addAttribute("book", book);
         model.addAttribute("chapterList", chapterService.getChapterSimpleListByBookName(bookName));
@@ -101,7 +96,7 @@ public class BookController {
     }
 
     @ModelAttribute("userAccount")
-    public Account getAccount(HttpSession session){
+    public Account getAccount(HttpSession session) {
         return (Account) session.getAttribute("userAccount");
     }
 }

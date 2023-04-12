@@ -24,6 +24,7 @@ $(document).ready(function () {
             data: formData,
             success: function (response) {
                 console.log(response);
+                window.location.href = "/nguoi-dang";
             },
             error: function (xhr, status, error) {
                 console.log(error);

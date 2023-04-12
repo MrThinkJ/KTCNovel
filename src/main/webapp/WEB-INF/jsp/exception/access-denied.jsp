@@ -8,8 +8,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>hello</title>
-    <link href="<c:url value="/css/style-error.css" />" rel="stylesheet">
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
+    <link href="<c:url value="/css/page/access-denied.css" />" rel="stylesheet">
     <link href="<c:url value="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"/> "
           rel="stylesheet">
     <script type="text/javascript" src="<c:url value="/webjars/bootstrap/5.1.3/js/bootstrap.min.js"/>"></script>
@@ -27,9 +28,9 @@
         ACCESS DENIED
     </div>
     <div class="error">
-        We are sorry, but you don't have permission to access this page
+        Ngươi không đủ tư cách vào đây, quay về đi !
     </div>
-    <a class="home" href="/">GO BACK TO HOMEPAGE</a>
+    <a class="home" href="/">VỀ BỜ</a>
 </div>
 </body>
 </html>

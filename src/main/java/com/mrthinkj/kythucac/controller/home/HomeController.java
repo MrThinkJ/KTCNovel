@@ -42,10 +42,13 @@ public class HomeController {
                                Model model){
         if (account != null){
             List<BookReadDTO> bookReadList = bookReadService.getAllBookRead(account);
-            List<BookReadDTO> bookReadDTOList = new ArrayList<>();
-            for (int i=0;i<2;i++)
-                bookReadDTOList.add(bookReadList.get(i));
-            model.addAttribute("bookReadList", bookReadDTOList);
+            if (bookReadList.size() != 0){
+                List<BookReadDTO> bookReadDTOList = new ArrayList<>();
+                int size = bookReadList.size() >= 3 ? 3 : bookReadList.size();
+                for (int i=0;i<size;i++)
+                    bookReadDTOList.add(bookReadList.get(i));
+                model.addAttribute("bookReadList", bookReadDTOList);
+            }
         }
         model.addAttribute("highestLikeBooks", bookService.get3BookHighestLike());
         model.addAttribute("highestViewBooks", bookService.get3BookHighestView());

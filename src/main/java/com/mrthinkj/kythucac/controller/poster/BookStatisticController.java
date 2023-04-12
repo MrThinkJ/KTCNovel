@@ -53,6 +53,7 @@ public class BookStatisticController {
          model.addAttribute("chapterList", bookStatisticService.getLast10ChapterPurchase(bookName));
          model.addAttribute("bookName", convert.getBookName(bookName));
          model.addAttribute("bookLink", bookName);
+         model.addAttribute("revenue", bookStatisticService.getRevenueLastTenDays(bookName));
          return "poster/book-detail-statistic";
     }
 
@@ -83,11 +84,11 @@ public class BookStatisticController {
 
     @ExceptionHandler(ForbiddenException.class)
     public String handleForbiddenException(){
-        return "403";
+        return "exception/access-denied";
     }
 
     @ExceptionHandler(NullPointerException.class) // new annotation
     public String handleNullPointerException(){
-        return "404";
+        return "exception/not-found";
     }
 }

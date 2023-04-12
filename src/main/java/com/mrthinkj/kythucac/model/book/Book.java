@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mrthinkj.kythucac.model.user.Account;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.UnsupportedEncodingException;
 import java.text.Normalizer;
 import java.time.LocalDate;
@@ -18,20 +20,27 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "book_name")
+    @NotNull
+    @NotEmpty
     private String name;
     @Column(name = "book_image")
     private String image;
     @Column(name = "book_description", columnDefinition = "MEDIUMTEXT")
+    @NotNull
+    @NotEmpty
     private String description;
     @Column(name = "book_post_date")
     private LocalDate postDate;
     @Column(name = "book_status")
     private Status status;
     @Column(name = "book_author")
+    @NotNull
+    @NotEmpty
     private String author;
     @Column(name = "book_view")
     private int view;
     @ManyToMany(cascade = CascadeType.ALL)
+    @NotNull
     @JoinTable(name = "book_type",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "type_id", referencedColumnName = "id"))

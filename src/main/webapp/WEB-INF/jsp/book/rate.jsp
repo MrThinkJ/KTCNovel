@@ -9,7 +9,8 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/book/rate.css"/>
     <link href="<c:url value="/css/page/header.css" />" rel="stylesheet">
     <link rel="shortcut icon" href="./icon/favicon.ico" type="image/x-icon">
@@ -123,13 +124,13 @@
                         <c:forEach items="${rateList}" var="rate">
                             <div class="comment">
                                 <div class="head-comment">
-                                    <div class="user-avatar">
+                                    <a href="/trang-ca-nhan/${rate.account.id}" class="user-avatar">
                                         <img src="${rate.account.user.avatar}" alt="" width="45">
-                                    </div>
+                                    </a>
                                     <div class="information">
-                                        <div class="username">
+                                        <a href="/trang-ca-nhan/${rate.account.id}" class="username" style="color:#000;">
                                             ${rate.account.user.name}
-                                        </div>
+                                        </a>
                                         <div class="wrapper-rate">
                                             <div class="rate">
                                                 ${rate.star} sao
@@ -151,6 +152,8 @@
         </div>
     </div>
     <!-- END CONTENT -->
+</div>
+<div class="notice">
 </div>
 <script src="/js/book/rate.js"></script>
 <script src="/js/page/header.js"></script>

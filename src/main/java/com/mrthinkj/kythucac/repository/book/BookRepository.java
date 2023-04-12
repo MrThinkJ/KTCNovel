@@ -6,10 +6,12 @@ import com.mrthinkj.kythucac.modelDTO.book.BookSimple;
 import com.mrthinkj.kythucac.modelDTO.book.ChapterSimple;
 import com.mrthinkj.kythucac.service.mapper.BookSimpleMapper;
 import com.mrthinkj.kythucac.service.mapper.ChapterSimpleMapper;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -61,13 +63,27 @@ public interface BookRepository extends CrudRepository<Book, Integer> {
 
     List<Book> findFirst10ByOrderByPostDateDesc();
 
+    @Query(value = "select distinct b.* from book as b join chapter c on b.id = c.book_id order by c.chapter_post_date desc limit 10", nativeQuery = true)
+    List<Book> findFirst10ByChapter();
+
+//    @Query(value = "select * from book where book_name like '%?1%'", nativeQuery = true)
     List<Book> findByNameLike(String keyword);
 
     @Query(value = "select b.* from book_type as bt join book b on b.id = bt.book_id where bt.type_id = ?1", nativeQuery = true)
     List<Book> findBookByType(int typeId);
 
-    @Query(value = "select b.* from book_type join book b on b.id = book_type.book_id where type_id = ?2 order by b.book_post_date desc", nativeQuery = true)
+    @Query(value = "select b.* from book_type join book b on b.id = book_type.book_id where type_id = ?1 order by b.book_post_date desc", nativeQuery = true)
     List<Book> findByTypeAndSortByNewCreate(int typeId);
 
     List<Book> findByOrderByPostDateDesc();
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from book_type where book_id = ?1", nativeQuery = true)
+    void deleteBookTypeByBookId(Integer bookId);
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from book where id = ?1", nativeQuery = true)
+    void deleteBook(Integer bookId);
 }

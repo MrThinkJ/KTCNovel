@@ -8,7 +8,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>hello</title>
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <link href="<c:url value="/css/page/home.css"/>" rel="stylesheet">
     <link href="<c:url value="/css/page/header.css" />" rel="stylesheet">
     <link href="<c:url value="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"/> "
@@ -81,7 +82,7 @@
                         <div class="col-6 d-flex mention_col">
                             <a href="#"
                             ><img
-                                    src="./img/avatar.jpg"
+                                    src="/images/default/book_default.jpg"
                                     alt=""
                                     class="avatar_mention"
                                     width="80"
@@ -111,7 +112,7 @@
                         <div class="col-6 d-flex mention_col">
                             <a href="#"
                             ><img
-                                    src="./img/avatar.jpg"
+                                    src="/images/default/book_default.jpg"
                                     alt=""
                                     class="avatar_mention"
                                     width="80"
@@ -143,7 +144,7 @@
                         <div class="col-6 d-flex mention_col">
                             <a href="#"
                             ><img
-                                    src="./img/avatar.jpg"
+                                    src="/images/default/book_default.jpg"
                                     alt=""
                                     class="avatar_mention"
                                     width="80"
@@ -173,69 +174,7 @@
                         <div class="col-6 d-flex mention_col">
                             <a href="#"
                             ><img
-                                    src="./img/avatar.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mention_row">
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="./img/avatar.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="./img/avatar.jpg"
+                                    src="/images/default/book_default.jpg"
                                     alt=""
                                     class="avatar_mention"
                                     width="80"
@@ -267,7 +206,7 @@
                         <div class="col-6 d-flex mention_col">
                             <a href="#"
                             ><img
-                                    src="./img/avatar.jpg"
+                                    src="/images/default/book_default.jpg"
                                     alt=""
                                     class="avatar_mention"
                                     width="80"
@@ -297,7 +236,69 @@
                         <div class="col-6 d-flex mention_col">
                             <a href="#"
                             ><img
-                                    src="./img/avatar.jpg"
+                                    src="/images/default/book_default.jpg"
+                                    alt=""
+                                    class="avatar_mention"
+                                    width="80"
+                                    height="100"
+                            /></a>
+                            <div class="wp_content_mention ms-3">
+                                <a href="#" class="title_mention"
+                                >Ta không hề cố ý thành tiên</a
+                                >
+                                <p class="des_mention" style="max-width: 250px">
+                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
+                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
+                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
+                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
+                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
+                                    bắc, tiên nhân đúng là chính ta.
+                                </p>
+                                <div class="author_mention">
+                                    <a href="#" class="name_author_mention"
+                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
+                                    >
+                                    <br/>
+                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mention_row">
+                        <div class="col-6 d-flex mention_col">
+                            <a href="#"
+                            ><img
+                                    src="/images/default/book_default.jpg"
+                                    alt=""
+                                    class="avatar_mention"
+                                    width="80"
+                                    height="100"
+                            /></a>
+                            <div class="wp_content_mention ms-3">
+                                <a href="#" class="title_mention"
+                                >Ta không hề cố ý thành tiên</a
+                                >
+                                <p class="des_mention" style="max-width: 250px">
+                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
+                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
+                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
+                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
+                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
+                                    bắc, tiên nhân đúng là chính ta.
+                                </p>
+                                <div class="author_mention">
+                                    <a href="#" class="name_author_mention"
+                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
+                                    >
+                                    <br/>
+                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex mention_col">
+                            <a href="#"
+                            ><img
+                                    src="/images/default/book_default.jpg"
                                     alt=""
                                     class="avatar_mention"
                                     width="80"
@@ -336,7 +337,7 @@
                     <c:forEach items="${bookReadList}" var="book">
                         <div class="rate_row row mt-4">
                             <div class="content_had_read d-flex">
-                                <a href="#"
+                                <a href="/truyen/${book.convertAll()}"
                                 ><img
                                         src="<c:url value="${book.bookImage}"/>"
                                         alt=""
@@ -358,7 +359,7 @@
                                         </div>
                                         <div class="continue">
                                             <a
-                                                    href="#"
+                                                    href="/truyen/${book.convertAll()}/chuong-${book.chapterMark}"
                                                     class="continue_read text-decoration-none float-end text-dark"
                                             >Đọc tiếp</a
                                             >
@@ -420,12 +421,12 @@
                             <tr>
                                 <th scope="row" class="type">${bookChapter.get(0).typeList.get(0).name}</th>
                                 <td class="name">
-                                    <a href="#"
+                                    <a href="/truyen/${bookChapter.get(0).convertAll()}"
                                     >${bookChapter.get(0).name}</a
                                     >
                                 </td>
                                 <td class="chapter">
-                                    <a href="#"
+                                    <a href="/truyen/${bookChapter.get(0).convertAll()}/chuong-${bookChapter.get(1).indexInBook}"
                                     >Chương ${bookChapter.get(1).indexInBook}: ${bookChapter.get(1).chapterName}</a
                                     >
                                 </td>
@@ -470,34 +471,28 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#">${highestViewBooks[0].bookName}</a>
+                                    <a href="/truyen/${highestViewBooks[0].convertAll()}">${highestViewBooks[0].bookName}</a>
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[0].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[0].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[0].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[0].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[0].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[0].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestViewBooks[0].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestViewBooks[0].bookImage}"/> "/>
                                 </div>
@@ -514,36 +509,29 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#"
-                                    >${highestViewBooks[1].bookName}</a
+                                    <a href="/truyen/${highestViewBooks[1].convertAll()}">${highestViewBooks[1].bookName}</a
                                     >
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[1].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[1].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[1].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[1].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[1].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[1].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestViewBooks[1].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestViewBooks[1].bookImage}"/>"/>
                                 </div>
@@ -560,36 +548,29 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#"
-                                    >${highestViewBooks[2].bookName}</a
+                                    <a href="/truyen/${highestViewBooks[2].convertAll()}">${highestViewBooks[2].bookName}</a
                                     >
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[2].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[2].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[2].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[2].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestViewBooks[2].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestViewBooks[2].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestViewBooks[2].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestViewBooks[2].bookImage}"/>"/>
                                 </div>
@@ -619,34 +600,28 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#">${highestLikeBooks[0].bookName}</a>
+                                    <a href="/truyen/${highestLikeBooks[0].convertAll()}">${highestLikeBooks[0].bookName}</a>
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[0].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[0].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[0].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[0].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[0].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[0].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestLikeBooks[0].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestLikeBooks[0].bookImage}"/> "/>
                                 </div>
@@ -663,36 +638,29 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#"
-                                    >${highestLikeBooks[1].bookName}</a
+                                    <a href="/truyen/${highestLikeBooks[1].convertAll()}">${highestLikeBooks[1].bookName}</a
                                     >
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[1].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[1].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[1].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[1].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[1].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[1].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestLikeBooks[1].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestLikeBooks[1].bookImage}"/>"/>
                                 </div>
@@ -709,36 +677,29 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#"
-                                    >${highestLikeBooks[2].bookName}</a
+                                    <a href="/truyen/${highestLikeBooks[2].convertAll()}">${highestLikeBooks[2].bookName}</a
                                     >
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[2].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[2].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[2].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[2].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestLikeBooks[2].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestLikeBooks[2].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestLikeBooks[2].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestLikeBooks[2].bookImage}"/>"/>
                                 </div>
@@ -766,34 +727,28 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#">${highestBookshelfBooks[0].bookName}</a>
+                                    <a href="/truyen/${highestBookshelfBooks[0].convertAll()}">${highestBookshelfBooks[0].bookName}</a>
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[0].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[0].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[0].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[0].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[0].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[0].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestBookshelfBooks[0].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestBookshelfBooks[0].bookImage}"/> "/>
                                 </div>
@@ -810,36 +765,29 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#"
-                                    >${highestBookshelfBooks[1].bookName}</a
+                                    <a href="/truyen/${highestBookshelfBooks[1].convertAll()}">${highestBookshelfBooks[1].bookName}</a
                                     >
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[1].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[1].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[1].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[1].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[1].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[1].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestBookshelfBooks[1].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestBookshelfBooks[1].bookImage}"/>"/>
                                 </div>
@@ -856,36 +804,29 @@
                             </div>
                             <div class="wp_rank_content">
                                 <div class="rank_title truncate">
-                                    <a href="#"
-                                    >${highestBookshelfBooks[2].bookName}</a
+                                    <a href="/truyen/${highestBookshelfBooks[2].convertAll()}">${highestBookshelfBooks[2].bookName}</a
                                     >
                                 </div>
                                 <div class="rank_view">
                                     <i class="fa-solid fa-eye"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_view_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[2].bookView}</a
+                                    ><div class="rank_view_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[2].bookView}</div
                                 >
                                 </div>
                                 <div class="rank_author">
                                     <i class="fa-solid fa-user-pen"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_author_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[2].bookAuthor}</a
+                                    ><div class="rank_author_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[2].bookAuthor}</div
                                 >
                                 </div>
                                 <div class="rank_type">
                                     <i class="fa-solid fa-tag"></i
-                                    ><a
-                                        href="#"
-                                        class="rank_type_content m-2 text-decoration-none text-dark"
-                                >${highestBookshelfBooks[2].typeName}</a
+                                    ><div class="rank_type_content m-2 text-decoration-none text-dark"
+                                >${highestBookshelfBooks[2].typeName}</div
                                 >
                                 </div>
                             </div>
-                            <a class="book-container" href="#" target="_blank">
+                            <a class="book-container" href="/truyen/${highestBookshelfBooks[0].convertAll()}" target="_blank">
                                 <div class="book">
                                     <img alt="..." src="<c:url value="${highestBookshelfBooks[2].bookImage}"/>"/>
                                 </div>

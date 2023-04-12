@@ -1,6 +1,8 @@
 package com.mrthinkj.kythucac.controller.admin;
 
 import com.mrthinkj.kythucac.model.user.Account;
+import com.mrthinkj.kythucac.service.admin.AdminService;
+import com.mrthinkj.kythucac.service.system.MessageService;
 import com.mrthinkj.kythucac.service.system.TransactionService;
 import com.mrthinkj.kythucac.service.user.AccountService;
 import com.mrthinkj.kythucac.service.user.UserService;
@@ -22,6 +24,8 @@ public class AdminController {
     UserService userService;
     @Autowired
     AccountService accountService;
+    @Autowired
+    AdminService adminService;
 
     @GetMapping("")
     public String showTransactionManagePage(Model model){
@@ -50,7 +54,9 @@ public class AdminController {
     @PostMapping("/recharge-account/{id}")
     public String rechargeAccount(@PathVariable int id,
                                   @RequestParam int amount) throws Exception {
-        accountService.recharge(accountService.getAccountById(id), amount);
+        Account account = accountService.getAccountById(id);
+        accountService.recharge(account, amount);
+        adminService.recharge(account, amount);
         return "redirect:/admin";
     }
 

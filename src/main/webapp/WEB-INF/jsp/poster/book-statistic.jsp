@@ -9,7 +9,8 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/poster/book-statistic.css"/>
     <link rel="stylesheet" href="/css/poster/header-manager.css"/>
     <link rel="shortcut icon" href="./icon/favicon.ico" type="image/x-icon">
@@ -61,10 +62,10 @@
 <div class="head-bar">
     <ul>
         <li class="home">
-            <a href="" class="nav-link"><i class="fa-solid fa-house"></i></a>
+            <a href="/" class="nav-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="user">
-            <a href="" class="nav-link"><i class="fa-solid fa-user"></i></a>
+            <a href="/tai-khoan/cai-dat" class="nav-link"><i class="fa-solid fa-user"></i></a>
         </li>
     </ul>
 </div>
@@ -100,7 +101,7 @@
                 <div class="book-post-date col-1" style="width: 10%;">${book.bookPostDate}</div>
                 <div class="book-like col-1">${book.bookLike}</div>
                 <div class="book-view col-1">${book.bookView}</div>
-                <div class="book-revenue col-2">${book.totalRevenue} <img class="currency" src="/image_upload/page/currency.png" alt=""></div>
+                <div class="book-revenue col-2">${book.totalRevenue} <img class="currency" src="/images/page/currency.png" alt=""></div>
                 <div class="book-cash-out col-1">
                     <c:if test="${book.totalRevenue >= 1000}">
                         Có

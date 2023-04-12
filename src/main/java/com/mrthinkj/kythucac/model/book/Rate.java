@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mrthinkj.kythucac.model.user.Account;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -15,6 +17,8 @@ public class Rate {
     @Column(name = "rate_star")
     private int star;
     @Column(name = "rate_content")
+    @NotEmpty
+    @NotNull
     private String content;
     @Column(name = "rate_date")
     private LocalDate rateDate;

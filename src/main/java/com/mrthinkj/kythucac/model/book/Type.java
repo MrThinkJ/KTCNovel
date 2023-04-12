@@ -13,9 +13,6 @@ public class Type {
     private int id;
     @Column(name = "type_name")
     private String name;
-    @ManyToMany(mappedBy = "typeList")
-    @JsonIgnore
-    private List<Book> bookList;
 
     public int getId() {
         return id;
@@ -31,13 +28,5 @@ public class Type {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Book> getBookList() {
-        return bookList;
-    }
-
-    public void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
     }
 }

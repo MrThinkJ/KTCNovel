@@ -9,7 +9,8 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Kỳ Thư Các</title>
+    <link rel="icon" href="/images/page/logo.png" type="image/x-icon"/>
     <link rel="stylesheet" href="/css/book/comment.css"/>
     <link href="<c:url value="/css/page/header.css" />" rel="stylesheet">
     <link rel="shortcut icon" href="./icon/favicon.ico" type="image/x-icon">
@@ -85,10 +86,18 @@
         <div class="row nav-row">
             <div class="col-11">
                 <div class="navigation">
-                    <a href="/truyen/${book.convertAll()}"><div class="navi-tab">Giới thiệu</div></a>
-                    <a href="/truyen/${book.convertAll()}/danh-gia"><div class="navi-tab">Đánh giá</div></a>
-                    <a href="/truyen/${book.convertAll()}/danh-sach-chuong"><div class="navi-tab">Danh sách chương</div></a>
-                    <a href="/truyen/${book.convertAll()}/binh-luan"><div class="navi-tab active">Bình luận</div></a>
+                    <a href="/truyen/${book.convertAll()}">
+                        <div class="navi-tab">Giới thiệu</div>
+                    </a>
+                    <a href="/truyen/${book.convertAll()}/danh-gia">
+                        <div class="navi-tab">Đánh giá</div>
+                    </a>
+                    <a href="/truyen/${book.convertAll()}/danh-sach-chuong">
+                        <div class="navi-tab">Danh sách chương</div>
+                    </a>
+                    <a href="/truyen/${book.convertAll()}/binh-luan">
+                        <div class="navi-tab active">Bình luận</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -112,13 +121,13 @@
                         <c:forEach items="${commentList}" var="comment">
                             <div class="comment">
                                 <div class="head-comment">
-                                    <div class="user-avatar">
+                                    <a href="/trang-ca-nhan/${comment.account.id}" class="user-avatar">
                                         <img src="${comment.account.user.avatar}" alt="" width="45">
-                                    </div>
+                                    </a>
                                     <div class="information">
-                                        <div class="username">
-                                            ${comment.account.user.name}
-                                        </div>
+                                        <a href="/trang-ca-nhan/${comment.account.id}" class="username" style="color: #000">
+                                                ${comment.account.user.name}
+                                        </a>
                                         <div class="wrapper-rate">
                                             <div class="rate-date">
                                                 <i class="fa-regular fa-clock"></i>${comment.commentDate}

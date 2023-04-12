@@ -9,10 +9,12 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/admin/confirm-transaction.css"/>
     <link rel="stylesheet" href="/css/admin/header-manager.css"/>
     <link rel="shortcut icon" href="./icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <script type="text/javascript" src="<c:url value="/webjars/jquery/3.6.0/jquery.js"/> "/>
     </script>
     <script type="text/javascript" src="<c:url value="/webjars/popper.js/2.9.3/umd/popper.min.js"/> "/>
@@ -54,10 +56,10 @@
 <div class="head-bar">
     <ul>
         <li class="home">
-            <a href="" class="nav-link"><i class="fa-solid fa-house"></i></a>
+            <a href="/" class="nav-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="user">
-            <a href="" class="nav-link"><i class="fa-solid fa-user"></i></a>
+            <a href="/tai-khoan/cai-dat" class="nav-link"><i class="fa-solid fa-user"></i></a>
         </li>
     </ul>
 </div>

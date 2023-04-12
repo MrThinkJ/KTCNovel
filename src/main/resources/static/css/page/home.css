@@ -445,3 +445,12 @@ a {
 .newest {
     margin-top: 50px;
 }
+
+.rank_author, .rank_view, .rank_type{
+    display:flex;
+    align-items: center;
+}
+
+.rank_author div , .rank_view div, .rank_type div{
+    margin: 0px 7px !important;
+}

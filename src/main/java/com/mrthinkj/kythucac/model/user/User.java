@@ -3,6 +3,8 @@ package com.mrthinkj.kythucac.model.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user")
@@ -11,8 +13,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "user_name")
+    @NotEmpty
+    @NotNull
     private String name;
     @Column(name = "gender")
+    @NotNull
     private Gender gender;
     @Column(name = "user_description")
     private String description;

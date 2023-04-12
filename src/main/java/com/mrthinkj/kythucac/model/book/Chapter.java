@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mrthinkj.kythucac.model.user.Account;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -16,6 +18,8 @@ public class Chapter {
     @Column(name = "index_in_book")
     private int index;
     @Column(name = "chapter_name")
+    @NotNull
+    @NotEmpty
     private String name;
     @Column(name = "chapter_content", columnDefinition = "MEDIUMTEXT")
     private String content;

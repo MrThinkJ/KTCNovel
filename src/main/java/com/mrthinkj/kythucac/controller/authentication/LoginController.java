@@ -33,4 +33,9 @@ public class LoginController {
             return "failed";
         return "success";
     }
+
+    @GetMapping("/not-active")
+    public @ResponseBody String notActiveLogin(){
+        return "not-active";
+    }
 }

@@ -1,10 +1,7 @@
 package com.mrthinkj.kythucac.service.user;
 
 import com.mrthinkj.kythucac.exception.UserAlreadyExistException;
-import com.mrthinkj.kythucac.model.user.Account;
-import com.mrthinkj.kythucac.model.user.Role;
-import com.mrthinkj.kythucac.model.user.User;
-import com.mrthinkj.kythucac.model.user.VerificationToken;
+import com.mrthinkj.kythucac.model.user.*;
 import com.mrthinkj.kythucac.modelDTO.user.AccountRegisterDTO;
 import com.mrthinkj.kythucac.repository.user.AccountRepository;
 import com.mrthinkj.kythucac.repository.user.RoleRepository;
@@ -37,6 +34,9 @@ public class AccountService implements UserDetailsService {
         if (isEmailExist(accountRegisterDTO.getEmail())){
             throw new UserAlreadyExistException("Đã tồn tại email "+accountRegisterDTO.getEmail()+" trong hệ thống");
         }
+        if (isUsernameExist(accountRegisterDTO.getUsername())){
+            throw new UserAlreadyExistException("Đã tồn tại tên người dùng này trong hệ thống");
+        }
         Account account = new Account();
         account.setUsername(accountRegisterDTO.getUsername());
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -51,12 +51,17 @@ public class AccountService implements UserDetailsService {
         User user = new User();
         user.setAvatar("/images/default/user_avatar.jpg");
         user.setName("user"+(int) (rd.nextDouble()*1000));
+        user.setGender(Gender.none);
         account.setUser(user);
         return accountRepository.save(account);
     }
 
     public boolean isEmailExist(String email){
         return accountRepository.findByEmail(email) != null;
+    }
+
+    public boolean isUsernameExist(String username){
+        return accountRepository.findByUsername(username) != null;
     }
 
     public Account getAccount(String verificationToken){
@@ -68,9 +73,15 @@ public class AccountService implements UserDetailsService {
     }
 
     public void createVerificationToken(Account account, String token){
-        VerificationToken verificationToken = new VerificationToken();
-        verificationToken.setAccount(account);
+        VerificationToken verificationToken = verificationTokenRepository.findByAccount(account);
+        if (verificationToken == null){
+            verificationToken.setAccount(account);
+            verificationToken.setToken(token);
+            verificationTokenRepository.save(verificationToken);
+            return;
+        }
         verificationToken.setToken(token);
+        verificationToken.setExpiryDate(new VerificationToken().getExpiryDate());
         verificationTokenRepository.save(verificationToken);
     }
 
@@ -110,5 +121,10 @@ public class AccountService implements UserDetailsService {
         if (account == null)
             throw new UsernameNotFoundException(username);
         return new CustomUserDetails(account);
+    }
+
+    public Account getByUsername(String username){
+        Account account = accountRepository.findByUsername(username);
+        return account;
     }
 }

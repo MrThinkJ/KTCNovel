@@ -28,4 +28,10 @@ public interface MessageRepository extends CrudRepository<Message, Integer> {
     List<Message> findNewestMessageListByAccount(Integer accountId);
 
     List<Message> findByFromAccountAndToAccountOrToAccountAndFromAccountOrderBySendDateAsc(Account fromAccount1, Account toAccount1, Account fromAccount2, Account toAccount2);
+
+    @Query(value = "select * from message where (from_account = ?1 and to_account = ?2) or (from_account = ?2 and to_account = ?1) order by send_date desc limit 1", nativeQuery = true)
+    Message findLastMessageBetweenTwoAccount(Integer fromAccount1, Integer toAccount1, Integer fromAccount2, Integer toAccount2);
+
+    @Query(value = "select * from message where seen = false and to_account = ?1 limit 1", nativeQuery = true)
+    Message findMessageUnseenByAccount(Integer accountId);
 }

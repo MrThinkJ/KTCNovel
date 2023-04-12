@@ -18,12 +18,7 @@ public class TypeController {
     @Autowired
     BookService bookService;
 
-    @GetMapping("/type")
-    public List<String> getTypes(){
-        return typeService.getTypes();
-    }
-
-    @GetMapping("/")
+    @GetMapping()
     public String getListType(@RequestParam(value = "keyword", required = false) String keyword,
                               @RequestParam(value = "type" , required = false) Integer typeId,
                               @RequestParam(value = "sortBy", required = false) String sortMethod,
@@ -35,16 +30,18 @@ public class TypeController {
         }
         if (typeId != null && sortMethod == null){
             model.addAttribute("bookList", bookService.getListBookByType(typeId));
-            return "page/type";
+            model.addAttribute("type", typeService.getTypes(typeId));
+            return "page/search";
         }
         if (typeId != null){
             model.addAttribute("bookList", bookService.getListBookByTypeAndSortByNewCreated(typeId));
-            return "page/type";
+            model.addAttribute("type", typeService.getTypes(typeId));
+            return "page/search";
         }
         if (sortMethod != null){
             model.addAttribute("bookList", bookService.getListBookBySortByNewCreated());
-            return "page/type";
+            return "page/search";
         }
-        return "page/type";
+        return "page/search";
     }
 }

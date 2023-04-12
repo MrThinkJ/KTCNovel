@@ -12,8 +12,8 @@ public class TypeService {
     @Autowired
     TypeRepository typeRepository;
 
-    public List<String> getTypes(){
-        return typeRepository.findNameOfType();
+    public List<String> getTypes(Integer typeId){
+        return typeRepository.findNameOfType(typeId);
     }
 
     public List<Type> findAllType(){

@@ -9,7 +9,8 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Kỳ Thư Các</title>
+<link rel="icon" href="/images/page/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/poster/cash-out.css"/>
     <link rel="stylesheet" href="/css/poster/header-manager.css"/>
     <link rel="shortcut icon" href="./icon/favicon.ico" type="image/x-icon">
@@ -65,10 +66,10 @@
 <div class="head-bar">
     <ul>
         <li class="home">
-            <a href="" class="nav-link"><i class="fa-solid fa-house"></i></a>
+            <a href="/" class="nav-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="user">
-            <a href="" class="nav-link"><i class="fa-solid fa-user"></i></a>
+            <a href="/tai-khoan/cai-dat" class="nav-link"><i class="fa-solid fa-user"></i></a>
         </li>
     </ul>
 </div>
@@ -106,7 +107,7 @@
         <form action="" id="cash-out-form">
             <div class="field">
                 <div class="title">
-                    <label for="amount">Số tiền muốn rút ( Lưu ý 1 nguyên thạch<img src="/image_upload/page/currency.png" class="currency"> = 10 vnd)</label>
+                    <label for="amount">Số tiền muốn rút ( Lưu ý 1 nguyên thạch<img src="/images/page/currency.png" class="currency"> = 10 vnd)</label>
                 </div>
                 <input type="text" name="amount" id="amount">
             </div>
