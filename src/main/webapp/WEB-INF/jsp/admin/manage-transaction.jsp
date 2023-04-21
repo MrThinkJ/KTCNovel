@@ -70,18 +70,26 @@
     <div class="transaction">
         <div class="container">
             <div class="row head">
-                <div class="col-2">Truyện</div>
-                <div class="col-2">Ngày rút</div>
+                <div class="col-1">Truyện</div>
+                <div class="col-1">Ngày rút</div>
                 <div class="col-2">Số tiền rút (vnd)</div>
+                <div class="col-1">STK</div>
+                <div class="col-2">Ngân hàng</div>
                 <div class="col-2">Trạng thái xử lí</div>
             </div>
             <c:forEach items="${transactionList}" var="transaction">
                 <div class="row transaction-detail">
-                    <div class="col-2 book-name">${transaction.book.name}</div>
-                    <div class="col-2">${transaction.cashOutDate}</div>
+                    <div class="col-1 book-name" style="display:-webkit-box;overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical">${transaction.book.name}</div>
+                    <div class="col-1">${transaction.cashOutDate}</div>
                     <div class="col-2">${transaction.amount * 10}</div>
+                    <div class="col-1">
+                        ${transaction.bankId}
+                    </div>
                     <div class="col-2">
-                        ${transaction.status.getDisplayName()}
+                            ${transaction.bank}
+                    </div>
+                    <div class="col-2">
+                            ${transaction.status.getDisplayName()}
                     </div>
                     <div class="col-3">
                         <a href="/admin/manage-transaction/confirm/${transaction.id}">Xử lí</a>

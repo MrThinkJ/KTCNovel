@@ -52,7 +52,7 @@ nav .menu {
 nav .left-nav {
     display: flex;
     align-items: center;
-    margin-right: 100px;
+    margin-right: 40px;
 }
 
 nav .left-nav div {

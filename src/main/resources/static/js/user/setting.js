@@ -7,7 +7,23 @@ $(document).ready(function () {
             url: "/tai-khoan/setting/update-user",
             data: formData,
             success: function (response) {
-                console.log(response);
+                if (response == "error"){
+                    const error = document.createElement("div");
+                    error.classList.add("error");
+                    const noti = document.querySelector(".notice");
+                    error.innerText = "Vui lòng điền đầy đủ thông tin";
+                    noti.appendChild(error);
+                    setTimeout(()=>{
+                        error.classList.add("hide");
+                    }, 2500);
+                    setTimeout(()=>{
+                        noti.removeChild(error);
+                    }, 3000);
+                    return;
+                }
+                if (response == "success"){
+                    window.location.href = "/tai-khoan/cai-dat";
+                }
             },
             error: function (xhr, status, error) {
                 console.log(error);

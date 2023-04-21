@@ -82,12 +82,22 @@
                         </a>
                     </c:if>
                 </div>
+
                 <div class="d-flex">
-                    <a href="/tai-khoan/tu-truyen/add/${book.convertAll()}" class="mark_book">
-                        <i class="fa-solid fa-bookmark"></i>
-                        Thêm vào tủ truyện
-                    </a>
+                    <c:if test="${isBookshelf == false}">
+                        <a href="/tai-khoan/tu-truyen/add/${book.convertAll()}" class="mark_book">
+                            <i class="fa-solid fa-bookmark"></i>
+                            Thêm vào tủ truyện
+                        </a>
+                    </c:if>
+                    <c:if test="${isBookshelf == true}">
+                        <a href="/tai-khoan/tu-truyen/add/${book.convertAll()}" class="mark_book">
+                            <i class="fa-solid fa-bookmark"></i>
+                            Xóa khỏi tủ truyện
+                        </a>
+                    </c:if>
                 </div>
+
                 <div class="d-flex">
                     <a href="/truyen/${book.convertAll()}/like" class="mark_book">
                         <i class="fa-solid fa-bookmark"></i>

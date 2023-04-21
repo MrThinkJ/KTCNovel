@@ -105,6 +105,8 @@ $(document).ready(function () {
                                 } else {
                                     // Recall
                                     ajaxCall(bookName, chapterIndex);
+                                    const wrapperBuy = document.querySelector(".wrapper-buy");
+                                    document.querySelector(".chapter-container").removeChild(wrapperBuy);
                                 }
                             },
                             error: function (xhr, status, error) {

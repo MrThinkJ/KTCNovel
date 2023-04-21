@@ -118,6 +118,13 @@ public class BookService {
 
     public void deleteBook(Book book){
         bookRepository.deleteBookTypeByBookId(book.getId());
+        bookRepository.deleteBookReadByBookId(book.getId());
+        bookRepository.deleteChapterByBookId(book.getId());
+        bookRepository.deleteRateByBookId(book.getId());
+        bookRepository.deleteBookLikeByBookId(book.getId());
+        bookRepository.deleteCommentByBookId(book.getId());
+        bookRepository.deleteBookStatisticByBookId(book.getId());
+        bookRepository.deleteChapterPurchaseByBookId(book.getId());
         bookRepository.deleteBook(book.getId());
     }
 

@@ -94,6 +94,7 @@ public class AccountController {
         model.addAttribute("user", account.getUser());
         model.addAttribute("gender", Gender.getGenderFromString(account.getUser().getGender().toString()));
         model.addAttribute("chapterPurchaseList", chapterService.getListChapterPurchaseByAccount(account, size, page));
+        model.addAttribute("currency", account.getCurrency());
         return "user/currency";
     }
 

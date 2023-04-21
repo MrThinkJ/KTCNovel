@@ -51,9 +51,10 @@ main .directory {
     padding: 10px 0px;
     font-weight: 500;
     color: #105f5f;
+    font-size: 15px;
 }
 
-.transaction .transaction-detail .col-2:not(:first-child) {
+.transaction .transaction-detail .col-2:not(:first-child), .transaction .transaction-detail .col-1:not(:first-child) {
     text-align: center;
 }
 

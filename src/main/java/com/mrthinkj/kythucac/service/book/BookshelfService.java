@@ -29,7 +29,6 @@ public class BookshelfService {
 
     public void toggleBookToBookShelf(Account account, String bookName){
         Book book = convert.findBookByName(bookName);
-        int bookId = book.getId();
         BookShelf bookShelf = bookshelfRepository.findByBookAndAccount(book, account);
         if (bookShelf == null){
             bookShelf = new BookShelf(account, book);
@@ -41,5 +40,11 @@ public class BookshelfService {
 
     public Integer getTotalBookShelfByBook(Book book){
         return bookshelfRepository.countNumberOfBookShelf(book.getId());
+    }
+
+    public Boolean isBookshelf(Book book, Account account) {
+        if (bookshelfRepository.findBookshelfByAccount(account.getId(), book) == null)
+            return false;
+        return true;
     }
 }

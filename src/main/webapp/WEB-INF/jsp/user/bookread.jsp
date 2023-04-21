@@ -29,7 +29,7 @@
 <jsp:include page="../page/header.jsp"/>
 <div id="wp-content">
     <div class="background">
-        <img src="/image_upload/default/background.jpg" class="background_image" alt=""/>
+        <img src="/images/default/background.jpg" class="background_image" alt=""/>
     </div>
     <div class="container wrapper-user">
         <div class="row user-head">
@@ -87,9 +87,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="delete">
+                                <a href="/tai-khoan/da-doc/remove/${book.get(0).convertAll()}" class="delete" style="color: #000">
                                     <i class="fa-solid fa-trash"></i>
-                                </div>
+                                </a>
                             </div>
                         </c:forEach>
                     </div>

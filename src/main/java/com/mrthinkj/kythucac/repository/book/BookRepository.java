@@ -84,6 +84,41 @@ public interface BookRepository extends CrudRepository<Book, Integer> {
 
     @Modifying
     @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from book_read where book_id = ?1", nativeQuery = true)
+    void deleteBookReadByBookId(Integer bookId);
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from chapter where book_id = ?1", nativeQuery = true)
+    void deleteChapterByBookId(Integer bookId);
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from chapter_purchase where book_id = ?1", nativeQuery = true)
+    void deleteChapterPurchaseByBookId(Integer bookId);
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from book_like where book_id = ?1", nativeQuery = true)
+    void deleteBookLikeByBookId(Integer bookId);
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from book_statistic where book_id = ?1", nativeQuery = true)
+    void deleteBookStatisticByBookId(Integer bookId);
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from comment where book_id = ?1", nativeQuery = true)
+    void deleteCommentByBookId(Integer bookId);
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
+    @Query(value = "delete from rate where book_id = ?1", nativeQuery = true)
+    void deleteRateByBookId(Integer bookId);
+
+    @Modifying
+    @Transactional(rollbackOn = Exception.class)
     @Query(value = "delete from book where id = ?1", nativeQuery = true)
     void deleteBook(Integer bookId);
 }

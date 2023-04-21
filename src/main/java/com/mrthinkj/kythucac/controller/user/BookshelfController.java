@@ -4,6 +4,7 @@ import com.mrthinkj.kythucac.model.book.Book;
 import com.mrthinkj.kythucac.model.user.Account;
 import com.mrthinkj.kythucac.model.user.Gender;
 import com.mrthinkj.kythucac.service.book.BookReadService;
+import com.mrthinkj.kythucac.service.book.BookService;
 import com.mrthinkj.kythucac.service.book.BookshelfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,6 +24,8 @@ public class BookshelfController {
     BookshelfService bookshelfService;
     @Autowired
     BookReadService bookReadService;
+    @Autowired
+    BookService bookService;
 
     @GetMapping("/tu-truyen")
     public String showBookShelf(@ModelAttribute("userAccount") Account account,
@@ -41,9 +44,10 @@ public class BookshelfController {
     }
 
     @PostMapping("/tu-truyen/add/{bookName}")
-    public void addBookToBookshelf(@PathVariable String bookName,
+    public String addBookToBookshelf(@PathVariable String bookName,
                                    @ModelAttribute("userAccount") Account account){
         bookshelfService.toggleBookToBookShelf(account, bookName);
+        return "redirect:/truyen/"+bookName;
     }
 
     @GetMapping("/da-doc")
@@ -62,6 +66,13 @@ public class BookshelfController {
         model.addAttribute("user", account.getUser());
         model.addAttribute("gender", Gender.getGenderFromString(account.getUser().getGender().toString()));
         return "user/bookread";
+    }
+
+    @PostMapping("/da-doc/remove/{bookName}")
+    public String removeBookRead(@ModelAttribute("userAccount") Account account,
+                                 @PathVariable String bookName){
+        bookReadService.removeFromBookRead(account, bookService.getBook(bookName).getId());
+        return "redirect:/tai-khoan/da-doc";
     }
 
     @ExceptionHandler(Exception.class)

@@ -454,3 +454,19 @@ a {
 .rank_author div , .rank_view div, .rank_type div{
     margin: 0px 7px !important;
 }
+
+.admin{
+    position: fixed;
+    bottom: 100px;
+    z-index: 999;
+    background-color: #0e8388;
+    color: #fff;
+    padding: 20px 10px;
+    right: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 7px 8px #0e8388;
+}
+
+.book-col{
+    margin-bottom: 30px;
+}

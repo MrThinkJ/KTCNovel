@@ -147,7 +147,7 @@ public class ManageBookController {
         Book book = bookService.getBook(bookName);
         if (book != null){
             bookService.deleteBook(book);
-            return "/nguoi-dang";
+            return "redirect:/nguoi-dang";
         }
         return "exception/not-found";
     }

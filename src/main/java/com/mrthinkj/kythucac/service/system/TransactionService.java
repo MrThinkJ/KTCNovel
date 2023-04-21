@@ -49,16 +49,18 @@ public class TransactionService {
         return transactionRepository.findByStatus(TransactionStatus.notStarted);
     }
 
-    public void confirmTransaction(int transactionId){
+    public String confirmTransaction(int transactionId){
         Transaction transaction = transactionRepository.findById(transactionId);
-//        adminService.confirmTransaction(transaction.getAccount());
+        adminService.confirmTransaction(transaction.getAccount());
         transaction.setStatus(TransactionStatus.confirm);
+        String status = bookStatisticService.cashOut(transaction.getBook(), transaction.getAmount());
         transactionRepository.save(transaction);
+        return status;
     }
 
     public void cancelTransaction(int transactionId){
         Transaction transaction = transactionRepository.findById(transactionId);
-//        adminService.cancelTransaction(transaction.getAccount());
+        adminService.cancelTransaction(transaction.getAccount());
         transaction.setStatus(TransactionStatus.cancel);
         transactionRepository.save(transaction);
     }

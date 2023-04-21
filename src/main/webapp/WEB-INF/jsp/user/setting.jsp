@@ -112,6 +112,8 @@
         </div>
     </div>
 </div>
+<div class="notice">
+</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="/js/user/setting.js"></script>

@@ -77,7 +77,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .failureHandler(customAuthenticationSuccessHandler)
                 .and()
                 .logout().permitAll().logoutUrl("/logout")
-                .logoutSuccessUrl("/home").deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/").deleteCookies("JSESSIONID")
                 .and().exceptionHandling().accessDeniedHandler(accessDeniedHandler());
         http.csrf().disable();
     }

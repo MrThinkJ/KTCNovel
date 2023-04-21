@@ -97,6 +97,7 @@ function addEventLogin(){
                     setTimeout(() => {
                         noti.removeChild(error);
                     }, 3000);
+                    loginBtn.innerHTML = "<button>Đăng nhập</button>";
                 } else if(response == 'resend'){
                     const success = document.createElement("div");
                     success.innerText = "Vui lòng kiểm tra email và xác nhận tài khoản";

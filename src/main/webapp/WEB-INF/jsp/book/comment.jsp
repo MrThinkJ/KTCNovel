@@ -147,6 +147,8 @@
     </div>
     <!-- END CONTENT -->
 </div>
+<div class="notice">
+</div>
 <script src="/js/book/comment.js"></script>
 <script src="/js/page/header.js"></script>
 </body>

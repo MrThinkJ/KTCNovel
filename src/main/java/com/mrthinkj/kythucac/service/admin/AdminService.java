@@ -1,6 +1,8 @@
 package com.mrthinkj.kythucac.service.admin;
 
 import com.mrthinkj.kythucac.model.user.Account;
+import com.mrthinkj.kythucac.model.user.Role;
+import com.mrthinkj.kythucac.repository.user.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -10,6 +12,16 @@ import org.springframework.stereotype.Service;
 public class AdminService {
     @Autowired
     private JavaMailSender mailSender;
+
+    @Autowired
+    RoleRepository roleRepository;
+
+    public Boolean isAdmin(Account account){
+        for (Role roleMatch : account.getRoleList()){
+            if (roleMatch.getName().equals("ROLE_ADMIN")) return true;
+        }
+        return false;
+    }
 
     public String confirmTransaction(Account account){
         String targetEmail = account.getEmail();

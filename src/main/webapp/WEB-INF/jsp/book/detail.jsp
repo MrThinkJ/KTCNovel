@@ -141,5 +141,6 @@
     </div>
     <!-- END CONTENT -->
 </div>
+<script src="/js/page/header.js"></script>
 </body>
 </html>

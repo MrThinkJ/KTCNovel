@@ -27,6 +27,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="<c:url value="/css/swiper.css"/>" rel="stylesheet">
 </head>
+<c:if test="${isAdmin}">
+    <div class="admin"><a href="/admin" style="color: #fff">Quản Lí</a> </div>
+</c:if>
 <body>
 <div id="wrapper">
     <jsp:include page="../page/header.jsp"/>
@@ -79,261 +82,39 @@
                 <div class="col-8" id="mention">
                     <h5 class="d-inline">Biên tập viên đề cử</h5>
                     <div class="row mention_row">
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="/images/default/book_default.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
+                        <c:forEach var="book" items="${bookRecent}" begin="1" end="8">
+                            <div class="col-6 d-flex mention_col book-col">
+                                <a href="/truyen/${book.get(0).convertAll()}"
+                                ><img
+                                        src="${book.get(0).image}"
+                                        alt=""
+                                        class="avatar_mention"
+                                        width="80"
+                                        height="100"
+                                /></a>
+                                <div class="wp_content_mention ms-3">
+                                    <a href="/truyen/${book.get(0).convertAll()}" class="title_mention"
+                                    >${book.get(0).name}</a
                                     >
-                                    <br/>
-                                    <a href="#" class="type_mention">Huyền Huyễn</a>
+                                    <p class="des_mention" style="max-width: 250px">
+                                        ${book.get(0).description}
+                                    </p>
+                                    <div class="author_mention">
+                                        <a href="#" class="name_author_mention"
+                                        ><i class="fa-solid fa-user"></i>${book.get(0).author}</a
+                                        >
+                                        <br/>
+                                        <a href="#" class="type_mention">${book.get(0).typeList.get(0).name}</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="/images/default/book_default.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mention_row">
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="/images/default/book_default.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="/images/default/book_default.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mention_row">
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="/images/default/book_default.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="/images/default/book_default.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mention_row">
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="/images/default/book_default.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 d-flex mention_col">
-                            <a href="#"
-                            ><img
-                                    src="/images/default/book_default.jpg"
-                                    alt=""
-                                    class="avatar_mention"
-                                    width="80"
-                                    height="100"
-                            /></a>
-                            <div class="wp_content_mention ms-3">
-                                <a href="#" class="title_mention"
-                                >Ta không hề cố ý thành tiên</a
-                                >
-                                <p class="des_mention" style="max-width: 250px">
-                                    Ta bản tha hương khách, vô ý thành tiên....Thâm sơn tu đạo
-                                    hai mươi năm, sư phụ để Tống Du xuống núi, tới kiến thức
-                                    yêu ma quỷ quái, nhân sinh thái độ khác nhau, đi tìm thăm
-                                    danh sơn đại xuyên, trong truyền thuyết tiên, nói đây mới
-                                    thực sự là tu hành.Không nghĩ tới, đi khắp đại giang nam
-                                    bắc, tiên nhân đúng là chính ta.
-                                </p>
-                                <div class="author_mention">
-                                    <a href="#" class="name_author_mention"
-                                    ><i class="fa-solid fa-user"></i> Kim Sắc Mạt Lỵ</a
-                                    >
-                                    <br/>
-                                    <a href="#" class="type_mention mb-0"> Huyền Huyễn</a>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                     <!--END CONTENT MENTION -->
                 </div>
                 <!-- CONTENT READING -->
                 <div class="col-4" id="reading">
                     <h5 class="d-inline">Đang đọc</h5>
-                    <a href="">
-                        <h6 class="float-end text-dark view_all">Xem tất cả</h6>
-                    </a>
                     <c:forEach items="${bookReadList}" var="book">
                         <div class="rate_row row mt-4">
                             <div class="content_had_read d-flex">
@@ -372,9 +153,6 @@
                     <hr/>
                     <!-- GUIDE -->
                     <h5 class="d-inline">Hướng dẫn</h5>
-                    <a href="">
-                        <h6 class="float-end text-dark view_all">Xem tất cả</h6>
-                    </a>
                     <ul class="guide" style="padding-left: 1.2rem">
                         <li class="mb-2">
                             <a href="#" class="text-dark text-decoration-none">
@@ -410,7 +188,7 @@
             <div class="container">
                 <div class="new_update_head">
                     <h5 class="d-inline">Mới cập nhật</h5>
-                    <a href="">
+                    <a href="/truyen?keyword=&sortBy=newUpdated">
                         <h6 class="float-end text-dark view_all">Xem tất cả</h6>
                     </a>
                 </div>
@@ -454,11 +232,6 @@
                     <div class="col-4 p-3 glass" id="most_read" style="width: 32%">
                         <div class="ranking_header">
                             <h5 class="d-inline">Đọc nhiều</h5>
-                            <a href="#">
-                                <h6 class="float-end text-dark view_all d-inline">
-                                    Xem tất cả
-                                </h6>
-                            </a>
                         </div>
                         <div class="wp_all_rank d-flex mt-3 mb-4">
                             <div class="rank_top">
@@ -583,11 +356,6 @@
                     <div class="col-4 p-3 glass" id="most_common" style="width: 32%">
                         <div class="ranking_header">
                             <h5 class="d-inline">Thích nhiều</h5>
-                            <a href="#">
-                                <h6 class="float-end text-dark view_all d-inline">
-                                    Xem tất cả
-                                </h6>
-                            </a>
                         </div>
                         <div class="wp_all_rank d-flex mt-3 mb-4">
                             <div class="rank_top">
@@ -710,11 +478,6 @@
                     <div class="col-4 p-3 glass" id="suggest" style="width: 32%">
                         <div class="ranking_header">
                             <h5 class="d-inline">Cất giữ nhiều</h5>
-                            <a href="#">
-                                <h6 class="float-end text-dark view_all d-inline">
-                                    Xem tất cả
-                                </h6>
-                            </a>
                         </div>
                         <div class="wp_all_rank d-flex mt-3 mb-4">
                             <div class="rank_top">
@@ -843,11 +606,6 @@
         <!-- SWIPER -->
         <div class="container text-center newest">
             <h5 style="font-size: 40px">MỚI ĐĂNG</h5>
-            <h6>
-                <a href="#" class="view_all text-decoration-none text-dark"
-                >Xem Tất Cả</a
-                >
-            </h6>
         </div>
         <div class="swiper" style="height: 507px">
             <div class="app">
@@ -1018,8 +776,8 @@
     <!-- END CONTENT -->
     <div id="footer" class="mt-5">
         <div class="container text-center">
-            <a href="#"><img src="./img/logo.png" height="50px" alt=""/></a>
-            <p class="content_footer">Truyện Quá Dài! Đéo Đọc</p>
+            <a href="#"><img src="./images/page/logo.png" height="50px" alt=""/></a>
+            <p class="content_footer">MrThinkJ</p>
             <div class="content_footer">
                 <a href="#" class="text-dark text-decoration-none p-2"
                 >Điều khoản dịch vụ</a

@@ -1,10 +1,12 @@
 package com.mrthinkj.kythucac.controller.home;
 
 import com.mrthinkj.kythucac.model.user.Account;
+import com.mrthinkj.kythucac.model.user.Role;
 import com.mrthinkj.kythucac.model.user.User;
 import com.mrthinkj.kythucac.modelDTO.book.BookReadDTO;
 import com.mrthinkj.kythucac.modelDTO.book.BookSimple;
 import com.mrthinkj.kythucac.modelDTO.user.UserDTO;
+import com.mrthinkj.kythucac.service.admin.AdminService;
 import com.mrthinkj.kythucac.service.book.BookReadService;
 import com.mrthinkj.kythucac.service.book.BookService;
 import com.mrthinkj.kythucac.service.user.UserService;
@@ -28,6 +30,8 @@ public class HomeController {
     BookService bookService;
     @Autowired
     BookReadService bookReadService;
+    @Autowired
+    AdminService adminService;
 
     @GetMapping("/session-user")
     public @ResponseBody User getUserSession(@ModelAttribute("userAccount") Account account){
@@ -49,6 +53,7 @@ public class HomeController {
                     bookReadDTOList.add(bookReadList.get(i));
                 model.addAttribute("bookReadList", bookReadDTOList);
             }
+            if (adminService.isAdmin(account)) model.addAttribute("isAdmin", Boolean.TRUE);
         }
         model.addAttribute("highestLikeBooks", bookService.get3BookHighestLike());
         model.addAttribute("highestViewBooks", bookService.get3BookHighestView());

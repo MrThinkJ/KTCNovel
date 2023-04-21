@@ -35,7 +35,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         Account account = ((CustomUserDetails) authentication.getPrincipal()).getAccount();
         HttpSession session = httpServletRequest.getSession();
         session.setAttribute("userAccount", account);
-        httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login/success");
+        httpServletResponse.sendRedirect("/login/success");
     }
 
     @Override

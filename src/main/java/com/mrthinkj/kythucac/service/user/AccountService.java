@@ -75,6 +75,7 @@ public class AccountService implements UserDetailsService {
     public void createVerificationToken(Account account, String token){
         VerificationToken verificationToken = verificationTokenRepository.findByAccount(account);
         if (verificationToken == null){
+            verificationToken = new VerificationToken();
             verificationToken.setAccount(account);
             verificationToken.setToken(token);
             verificationTokenRepository.save(verificationToken);

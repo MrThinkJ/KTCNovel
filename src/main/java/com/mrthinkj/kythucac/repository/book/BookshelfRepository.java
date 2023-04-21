@@ -27,4 +27,7 @@ public interface BookshelfRepository extends PagingAndSortingRepository<BookShel
 
     @Query(value = "select count(*) from book_read where book_id = ?1", nativeQuery = true)
     Integer countNumberOfBookShelf(int bookId);
+
+    @Query(value = "SELECT bs.book FROM BookShelf bs WHERE bs.account.id = :accountId and bs.book = :book")
+    Book findBookshelfByAccount(int accountId, Book book);
 }

@@ -35,7 +35,7 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(targetEmail);
         mail.setSubject("Registration Confirmation");
-        mail.setText("Xin chào "+account.getUsername()+"\n\nBạn đã đăng ký thành công tài khoản trên Kỳ Thư Các, để kích hoạt tài khoản, nạp 15k và bấm vào link dưới đây: "+"\n\n"+confirmUrl);
+        mail.setText("Xin chào "+account.getUsername()+"\n\nBạn đã đăng ký thành công tài khoản trên Kỳ Thư Các, để kích hoạt tài khoản, bấm vào link dưới đây: "+"\n\n"+confirmUrl);
         mailSender.send(mail);
     }
 }

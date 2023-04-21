@@ -131,8 +131,8 @@
     <!-- END CONTENT -->
     <div id="footer" class="mt-5">
         <div class="container text-center">
-            <a href="#"><img src="./img/logo.png" height="50px" alt=""/></a>
-            <p class="content_footer">Truyện Quá Dài! Đéo Đọc</p>
+            <a href="#"><img src="./images/page/logo.png" height="50px" alt=""/></a>
+            <p class="content_footer">MrThinkJ</p>
             <div class="content_footer">
                 <a href="#" class="text-dark text-decoration-none p-2"
                 >Điều khoản dịch vụ</a

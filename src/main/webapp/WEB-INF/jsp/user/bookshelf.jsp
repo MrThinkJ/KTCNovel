@@ -88,9 +88,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="delete">
+                                <a href="/tai-khoan/tu-truyen/add/${book.convertAll()}" class="delete" style="color: #000">
                                     <i class="fa-solid fa-trash"></i>
-                                </div>
+                                </a>
                             </div>
                         </c:forEach>
                     </div>

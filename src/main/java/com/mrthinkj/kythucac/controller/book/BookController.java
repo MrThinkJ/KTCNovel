@@ -45,6 +45,7 @@ public class BookController {
         if (account != null) {
             Integer mark = bookReadService.getChapterMarkOfBookReadByAccount(account, book);
             model.addAttribute("chapterMark", mark);
+            model.addAttribute("isBookshelf", bookshelfService.isBookshelf(book, account));
         }
         return "book/detail";
     }
@@ -54,6 +55,11 @@ public class BookController {
                            @ModelAttribute("userAccount") Account account,
                            Model model) {
         Book book = bookService.getBook(bookName);
+        if (account != null) {
+            Integer mark = bookReadService.getChapterMarkOfBookReadByAccount(account, book);
+            model.addAttribute("chapterMark", mark);
+            model.addAttribute("isBookshelf", bookshelfService.isBookshelf(book, account));
+        }
         model.addAttribute("book", book);
         model.addAttribute("rateList", bookEvaluateService.getRateOfBook(book));
         addAttribute(model, book);
@@ -65,6 +71,11 @@ public class BookController {
                               @ModelAttribute("userAccount") Account account,
                               Model model) {
         Book book = bookService.getBook(bookName);
+        if (account != null) {
+            Integer mark = bookReadService.getChapterMarkOfBookReadByAccount(account, book);
+            model.addAttribute("chapterMark", mark);
+            model.addAttribute("isBookshelf", bookshelfService.isBookshelf(book, account));
+        }
         model.addAttribute("book", book);
         model.addAttribute("commentList", bookEvaluateService.getCommentOfBook(book));
         addAttribute(model, book);
@@ -76,6 +87,11 @@ public class BookController {
                                   @ModelAttribute("userAccount") Account account,
                                   Model model) {
         Book book = bookService.getBook(bookName);
+        if (account != null) {
+            Integer mark = bookReadService.getChapterMarkOfBookReadByAccount(account, book);
+            model.addAttribute("chapterMark", mark);
+            model.addAttribute("isBookshelf", bookshelfService.isBookshelf(book, account));
+        }
         model.addAttribute("book", book);
         model.addAttribute("chapterList", chapterService.getChapterSimpleListByBookName(bookName));
         addAttribute(model, book);
@@ -92,7 +108,7 @@ public class BookController {
 
     @ExceptionHandler(Exception.class)
     public RedirectView handleException(Exception ex) {
-        return new RedirectView("/truyen");
+        return new RedirectView("/404");
     }
 
     @ModelAttribute("userAccount")

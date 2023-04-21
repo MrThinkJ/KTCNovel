@@ -49,13 +49,9 @@ public class BookStatisticService {
         bookStatisticRepository.save(bookStatistic);
     }
 
-    public String cashOut(Book book, int amount, Account account){
-        if (amount < 100000)
-            return "amount wrong";
+    public String cashOut(Book book, int amount){
         BookStatistic bookStatistic = bookStatisticRepository.findByBook(book);
         int totalRevenue = bookStatistic.getTotalRevenue();
-        if (totalRevenue < amount)
-            return "failed";
         bookStatistic.setTotalRevenue(totalRevenue-amount);
         bookStatisticRepository.save(bookStatistic);
         return "succeed";

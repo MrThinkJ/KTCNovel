@@ -17,8 +17,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
-
-@RestController
+@Controller
 @RequestMapping(method = RequestMethod.GET, path = "/truyen")
 public class EvaluateBookController {
     @Autowired
@@ -26,19 +25,20 @@ public class EvaluateBookController {
 
     @PostMapping("/{bookName}/like")
     @CheckAccount
-    public void addLikeToBook(@ModelAttribute("userAccount") Account account,
+    public String addLikeToBook(@ModelAttribute("userAccount") Account account,
                               @PathVariable String bookName) {
         bookEvaluateService.toggleLikeToBook(bookName, account);
+        return "redirect:/truyen/"+bookName;
     }
 
     @PostMapping("/{bookName}/view")
-    public void addViewToBook(@PathVariable String bookName) {
+    public @ResponseBody void addViewToBook(@PathVariable String bookName) {
         bookEvaluateService.addViewToBook(bookName);
     }
 
     @PostMapping("/{bookName}/process-rate")
     @CheckAccount
-    public String addRateToBook(@ModelAttribute("userAccount") Account account,
+    public @ResponseBody String addRateToBook(@ModelAttribute("userAccount") Account account,
                                 @PathVariable String bookName,
                                 @Valid @ModelAttribute("rate") Rate rate,
                                 BindingResult result) {
@@ -53,7 +53,7 @@ public class EvaluateBookController {
 
     @PostMapping("/{bookName}/process-comment")
     @CheckAccount
-    public String addCommentToBook(@ModelAttribute("userAccount") Account account,
+    public @ResponseBody String addCommentToBook(@ModelAttribute("userAccount") Account account,
                                    @PathVariable String bookName,
                                    @Valid @ModelAttribute("rate") Comment comment,
                                    BindingResult result) {
