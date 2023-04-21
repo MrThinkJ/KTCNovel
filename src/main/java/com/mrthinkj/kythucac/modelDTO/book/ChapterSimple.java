@@ -13,6 +13,6 @@ import java.util.Date;
 public class ChapterSimple {
     private Integer indexInBook;
     private String chapterName;
-    private Integer vipStatus;
+    private Boolean vipStatus;
     private Date postDate;
 }

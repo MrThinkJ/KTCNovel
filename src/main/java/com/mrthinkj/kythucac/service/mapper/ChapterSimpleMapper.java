@@ -14,7 +14,7 @@ public class ChapterSimpleMapper{
         ChapterSimple chapterSimple = new ChapterSimple();
         chapterSimple.setIndexInBook((Integer) row[0]);
         chapterSimple.setChapterName((String) row[1]);
-        chapterSimple.setVipStatus((Integer) row[2]);
+        chapterSimple.setVipStatus((Boolean) row[2]);
         chapterSimple.setPostDate((Date) row[3]);
         return chapterSimple;
     }
@@ -28,7 +28,7 @@ public class ChapterSimpleMapper{
         ChapterSimple chapterSimple = new ChapterSimple();
         chapterSimple.setIndexInBook((Integer) row[0]);
         chapterSimple.setChapterName((String) row[1]);
-        chapterSimple.setVipStatus((Integer) row[2]);
+        chapterSimple.setVipStatus((Boolean) row[2]);
         chapterSimple.setPostDate((Date) row[3]);
         return chapterSimple;
     }
